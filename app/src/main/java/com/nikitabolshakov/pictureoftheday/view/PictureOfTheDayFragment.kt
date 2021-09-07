@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import coil.api.load
 import com.nikitabolshakov.pictureoftheday.R
+import com.nikitabolshakov.pictureoftheday.databinding.MainFragmentBinding
 import com.nikitabolshakov.pictureoftheday.viewmodel.PictureOfTheDayState
 import com.nikitabolshakov.pictureoftheday.viewmodel.PictureOfTheDayViewModel
 
@@ -18,6 +20,9 @@ class PictureOfTheDayFragment : Fragment() {
         fun newInstance() = PictureOfTheDayFragment()
     }
 
+    private var _binding: MainFragmentBinding? = null
+    private val binding get() = _binding!!
+
     private val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
     }
@@ -26,7 +31,8 @@ class PictureOfTheDayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,13 +55,11 @@ class PictureOfTheDayFragment : Fragment() {
                     //showSuccess()
                     //Coil в работе: достаточно вызвать у нашего ImageView
                     //нужную extension-функцию и передать ссылку и заглушки для placeholder
-
-                    R.id.image_view
-                    /* image_view.load(url) {
+                    binding.imageView.load(url) {
                         lifecycle(this@PictureOfTheDayFragment)
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
-                    } */
+                    }
                 }
             }
             is PictureOfTheDayState.Loading -> {
@@ -63,8 +67,7 @@ class PictureOfTheDayFragment : Fragment() {
                 //showLoading()
             }
             is PictureOfTheDayState.Error -> {
-
-
+                // Отобразить эррор
             }
         }
     }
