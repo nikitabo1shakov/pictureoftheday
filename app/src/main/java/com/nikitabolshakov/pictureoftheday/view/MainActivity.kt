@@ -1,8 +1,8 @@
-package com.nikitabolshakov.pictureoftheday
+package com.nikitabolshakov.pictureoftheday.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.nikitabolshakov.pictureoftheday.ui.main.MainFragment
+import com.nikitabolshakov.pictureoftheday.R
 
 class MainActivity : AppCompatActivity() {
 
