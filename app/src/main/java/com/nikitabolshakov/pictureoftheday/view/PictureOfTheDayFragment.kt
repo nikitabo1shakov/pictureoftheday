@@ -15,6 +15,8 @@ import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.MainFragmentBinding
+import com.nikitabolshakov.pictureoftheday.model.utils.hide
+import com.nikitabolshakov.pictureoftheday.model.utils.show
 import com.nikitabolshakov.pictureoftheday.viewmodel.PictureOfTheDayState
 import com.nikitabolshakov.pictureoftheday.viewmodel.PictureOfTheDayViewModel
 
@@ -62,17 +64,13 @@ class PictureOfTheDayFragment : Fragment() {
     private fun renderData(state: PictureOfTheDayState) {
         when (state) {
             is PictureOfTheDayState.Success -> {
+                binding.includedLoadingLayout.loadingLayout.hide()
                 val serverResponseData = state.serverResponseData
                 val url = serverResponseData.url
                 if (url.isNullOrEmpty()) {
-                    //Отобразите ошибку
-                    //showError("Сообщение, что ссылка пустая")
-                    Toast.makeText(context, "Link is empty", Toast.LENGTH_SHORT).show()
+                    toast("Link is empty")
                 } else {
-                    //Отобразите фото
-                    //showSuccess()
-                    //Coil в работе: достаточно вызвать у нашего ImageView
-                    //нужную extension-функцию и передать ссылку и заглушки для placeholder
+                    toast("Сейчас подгрузится изображение дня")
                     binding.imageView.load(url) {
                         lifecycle(this@PictureOfTheDayFragment)
                         error(R.drawable.ic_load_error_vector)
@@ -81,11 +79,11 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
             is PictureOfTheDayState.Loading -> {
-                //Отобразите загрузку
-                //showLoading()
+                binding.includedLoadingLayout.loadingLayout.show()
             }
             is PictureOfTheDayState.Error -> {
-                // Отобразить эррор
+                binding.includedLoadingLayout.loadingLayout.hide()
+                toast("Error")
             }
         }
     }
@@ -144,5 +142,12 @@ class PictureOfTheDayFragment : Fragment() {
                 binding.bottomAppBar.replaceMenu(R.menu.bottom_bar_menu)
             }
         }
+    }
+}
+
+private fun Fragment.toast(string: String?) {
+    Toast.makeText(context, string, Toast.LENGTH_SHORT).apply {
+        setGravity(Gravity.BOTTOM, 0, 250)
+        show()
     }
 }
