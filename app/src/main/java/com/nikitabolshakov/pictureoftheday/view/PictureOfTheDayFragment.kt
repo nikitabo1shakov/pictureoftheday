@@ -1,5 +1,7 @@
 package com.nikitabolshakov.pictureoftheday.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +41,13 @@ class PictureOfTheDayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val observer = Observer<PictureOfTheDayState> { renderData(it) }
         viewModel.getData().observe(viewLifecycleOwner, observer)
+
+        binding.inputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data =
+                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
+            })
+        }
     }
 
     private fun renderData(state: PictureOfTheDayState) {
