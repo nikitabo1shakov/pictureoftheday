@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.view
+package com.nikitabolshakov.pictureoftheday.model.utils
 
 import android.content.Context
 import android.util.AttributeSet

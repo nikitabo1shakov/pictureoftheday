@@ -2,19 +2,19 @@ package com.nikitabolshakov.pictureoftheday.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.nikitabolshakov.pictureoftheday.databinding.MainActivityBinding
+import com.nikitabolshakov.pictureoftheday.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: MainActivityBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = MainActivityBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(binding.container.id, PictureOfTheDayFragment.newInstance())
+                .replace(binding.container.id, PODFragment.newInstance())
                 .commitNow()
         }
     }

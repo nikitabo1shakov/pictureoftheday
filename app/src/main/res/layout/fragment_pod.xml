@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/search_wiki"
                 app:counterEnabled="true"
-                app:counterMaxLength="20"
+                app:counterMaxLength="25"
                 app:endIconCheckable="true"
                 app:endIconDrawable="@drawable/ic_wikipedia"
                 app:endIconMode="custom"
@@ -36,9 +36,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.nikitabolshakov.pictureoftheday.view.EquilateralImageView
+            <com.nikitabolshakov.pictureoftheday.model.utils.EquilateralImageView
                 android:id="@+id/image_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

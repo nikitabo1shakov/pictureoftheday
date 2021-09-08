@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.model
+package com.nikitabolshakov.pictureoftheday.model.retrofit
 
 import com.google.gson.annotations.SerializedName
 

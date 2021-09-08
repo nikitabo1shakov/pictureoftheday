@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.model
+package com.nikitabolshakov.pictureoftheday.model.retrofit
 
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -9,6 +9,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 class PODRetrofitImpl {
+
+    inner class PODInterceptor : Interceptor {
+
+        @Throws(IOException::class)
+        override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
+            return chain.proceed(chain.request())
+        }
+    }
 
     private val baseUrl = "https://api.nasa.gov/"
 
@@ -26,13 +34,5 @@ class PODRetrofitImpl {
         httpClient.addInterceptor(interceptor)
         httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         return httpClient.build()
-    }
-
-    inner class PODInterceptor : Interceptor {
-
-        @Throws(IOException::class)
-        override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
-            return chain.proceed(chain.request())
-        }
     }
 }

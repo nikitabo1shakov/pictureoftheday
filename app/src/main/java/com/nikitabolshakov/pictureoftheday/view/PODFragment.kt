@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -14,39 +13,36 @@ import coil.api.load
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.nikitabolshakov.pictureoftheday.R
-import com.nikitabolshakov.pictureoftheday.databinding.MainFragmentBinding
+import com.nikitabolshakov.pictureoftheday.databinding.FragmentPodBinding
 import com.nikitabolshakov.pictureoftheday.model.utils.hide
 import com.nikitabolshakov.pictureoftheday.model.utils.show
-import com.nikitabolshakov.pictureoftheday.viewmodel.PictureOfTheDayState
-import com.nikitabolshakov.pictureoftheday.viewmodel.PictureOfTheDayViewModel
+import com.nikitabolshakov.pictureoftheday.model.utils.toast
+import com.nikitabolshakov.pictureoftheday.viewmodel.PODState
+import com.nikitabolshakov.pictureoftheday.viewmodel.PODViewModel
 
-class PictureOfTheDayFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = PictureOfTheDayFragment()
-        private var isMain = true
-    }
-
-    private var _binding: MainFragmentBinding? = null
-    private val binding get() = _binding!!
+class PODFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
-    private val viewModel: PictureOfTheDayViewModel by lazy {
-        ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
+    private val viewModel: PODViewModel by lazy {
+        ViewModelProvider(this).get(PODViewModel::class.java)
     }
+
+    private var _binding: FragmentPodBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentPodBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val observer = Observer<PictureOfTheDayState> { renderData(it) }
+
+        val observer = Observer<PODState> { renderData(it) }
         viewModel.getData().observe(viewLifecycleOwner, observer)
 
         binding.inputLayout.setEndIconOnClickListener {
@@ -61,9 +57,9 @@ class PictureOfTheDayFragment : Fragment() {
         setBottomAppBar(view)
     }
 
-    private fun renderData(state: PictureOfTheDayState) {
+    private fun renderData(state: PODState) {
         when (state) {
-            is PictureOfTheDayState.Success -> {
+            is PODState.Success -> {
                 binding.includedLoadingLayout.loadingLayout.hide()
                 val serverResponseData = state.serverResponseData
                 val url = serverResponseData.url
@@ -72,16 +68,16 @@ class PictureOfTheDayFragment : Fragment() {
                 } else {
                     toast("Сейчас подгрузится изображение дня")
                     binding.imageView.load(url) {
-                        lifecycle(this@PictureOfTheDayFragment)
+                        lifecycle(this@PODFragment)
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
                 }
             }
-            is PictureOfTheDayState.Loading -> {
+            is PODState.Loading -> {
                 binding.includedLoadingLayout.loadingLayout.show()
             }
-            is PictureOfTheDayState.Error -> {
+            is PODState.Error -> {
                 binding.includedLoadingLayout.loadingLayout.hide()
                 toast("Error")
             }
@@ -100,8 +96,8 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_fav -> Toast.makeText(context, "Favourite", Toast.LENGTH_SHORT).show()
-            R.id.app_bar_setting -> Toast.makeText(context, "Setting", Toast.LENGTH_SHORT).show()
+            R.id.app_bar_favourite -> toast("Favourite")
+            R.id.app_bar_setting -> toast("Setting")
             android.R.id.home -> {
                 activity?.let {
                     BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
@@ -109,7 +105,6 @@ class PictureOfTheDayFragment : Fragment() {
             }
         }
         return super.onOptionsItemSelected(item)
-
     }
 
     private fun setBottomAppBar(view: View) {
@@ -143,11 +138,14 @@ class PictureOfTheDayFragment : Fragment() {
             }
         }
     }
-}
 
-private fun Fragment.toast(string: String?) {
-    Toast.makeText(context, string, Toast.LENGTH_SHORT).apply {
-        setGravity(Gravity.BOTTOM, 0, 250)
-        show()
+    companion object {
+        private var isMain = true
+        fun newInstance() = PODFragment()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

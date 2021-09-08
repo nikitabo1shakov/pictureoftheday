@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.BottomNavigationLayoutBinding
+import com.nikitabolshakov.pictureoftheday.model.utils.toast
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
@@ -23,15 +23,19 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.navigation_one -> Toast.makeText(context, "1", Toast.LENGTH_SHORT).show()
-                R.id.navigation_two -> Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
+                R.id.navigation_one -> toast("1")
+                R.id.navigation_two -> toast("2")
             }
             true
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
