@@ -52,7 +52,7 @@ class PODFragment : Fragment() {
             })
         }
 
-        setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
+        setBottomSheetBehavior(binding.includedBottomSheetLayout.bottomSheetContainer)
 
         setBottomAppBar(view)
     }
