@@ -60,24 +60,30 @@ class PODFragment : Fragment() {
     private fun renderData(state: PODState) {
         when (state) {
             is PODState.Success -> {
+                binding.main.show()
                 binding.includedLoadingLayout.loadingLayout.hide()
                 val serverResponseData = state.serverResponseData
-                val url = serverResponseData.url
-                if (url.isNullOrEmpty()) {
+                val hdUrl = serverResponseData.hdurl
+                val copyright = serverResponseData.copyright
+                if (hdUrl.isNullOrEmpty() || copyright.isNullOrEmpty()) {
                     toast("Link is empty")
                 } else {
-                    toast("Сейчас подгрузится изображение дня")
-                    binding.imageView.load(url) {
-                        lifecycle(this@PODFragment)
-                        error(R.drawable.ic_load_error_vector)
-                        placeholder(R.drawable.ic_no_photo_vector)
+                    with(binding) {
+                        imageView.load(hdUrl) {
+                            lifecycle(this@PODFragment)
+                            error(R.drawable.ic_load_error_vector)
+                            placeholder(R.drawable.ic_no_photo_vector)
+                        }
+                        textView.text = copyright
                     }
                 }
             }
             is PODState.Loading -> {
+                binding.main.hide()
                 binding.includedLoadingLayout.loadingLayout.show()
             }
             is PODState.Error -> {
+                binding.main.show()
                 binding.includedLoadingLayout.loadingLayout.hide()
                 toast("Error")
             }
