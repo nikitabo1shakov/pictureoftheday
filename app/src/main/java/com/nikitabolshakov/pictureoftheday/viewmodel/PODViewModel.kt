@@ -22,11 +22,12 @@ class PODViewModel(
 
     private fun sendServerRequest() {
         liveStateForViewToObserve.value = PODState.Loading(null)
+        val date = null
         val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
             PODState.Error(Throwable("You need API key"))
         } else {
-            retrofitImpl.getRetrofitImpl().getPictureOfTheDay(apiKey).enqueue(object :
+            retrofitImpl.getRetrofitImpl().getPictureOfTheDay(date, apiKey).enqueue(object :
                 Callback<PODServerResponseData> {
                 override fun onResponse(
                     call: Call<PODServerResponseData>,
