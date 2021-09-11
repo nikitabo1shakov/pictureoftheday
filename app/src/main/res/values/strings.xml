@@ -1,4 +1,5 @@
 <resources>
+    <!-- Main -->
     <string name="app_name">Picture Of The Day</string>
     <string name="photo_of_the_day_stub">Photo of the day</string>
     <string name="search_wiki">Найти в Википедии</string>
@@ -6,8 +7,31 @@
     <string name="favourite">favourite</string>
     <string name="settings">settings</string>
     <string name="search">Search</string>
-
-    <!-- Main -->
-
-    <!-- Settings -->
+    <!-- Fragment Chips -->
+    <string name="_default">Default</string>
+    <string name="entry">Entry</string>
+    <string name="choice">Choice</string>
+    <string name="action">Action</string>
+    <string name="filter">Filter</string>
+    <string name="background_color">Background Color</string>
+    <string name="ripple_color">Ripple Color</string>
+    <string name="chip_icon">Chip icon</string>
+    <string name="chip">Chip</string>
+    <string name="group">Group</string>
+    <string name="one">One</string>
+    <string name="two">Two</string>
+    <string name="choose_one">Choose One</string>
+    <string name="choice_a">Choice A</string>
+    <string name="choice_b">Choice B</string>
+    <string name="choice_c">Choice C</string>
+    <string name="chip_2">Chip</string>
+    <string name="group_2">Group</string>
+    <string name="in">in</string>
+    <string name="single">single</string>
+    <string name="line">line</string>
+    <string name="add">add</string>
+    <string name="a">a</string>
+    <string name="horizontal">horizontal</string>
+    <string name="scroll">scroll</string>
+    <string name="close_icon_listener">Close Icon Listener</string>
 </resources>
