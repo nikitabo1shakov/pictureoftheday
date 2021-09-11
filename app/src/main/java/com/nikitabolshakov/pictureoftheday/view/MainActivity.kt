@@ -19,6 +19,6 @@ class MainActivity : AppCompatActivity() {
                 .commitNow()
         }
 
-        setTheme(R.style.AppTheme_IndigoTheme)
+        setTheme(R.style.AppTheme_PinkTheme)
     }
 }
