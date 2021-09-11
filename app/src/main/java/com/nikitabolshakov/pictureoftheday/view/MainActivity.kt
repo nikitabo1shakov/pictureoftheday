@@ -2,6 +2,7 @@ package com.nikitabolshakov.pictureoftheday.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,5 +18,7 @@ class MainActivity : AppCompatActivity() {
                 .replace(binding.container.id, PODFragment.newInstance())
                 .commitNow()
         }
+
+        setTheme(R.style.AppTheme_IndigoTheme)
     }
 }
