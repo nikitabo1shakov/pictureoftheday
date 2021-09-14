@@ -18,6 +18,7 @@ import com.nikitabolshakov.pictureoftheday.model.utils.hide
 import com.nikitabolshakov.pictureoftheday.model.utils.show
 import com.nikitabolshakov.pictureoftheday.model.utils.toast
 import com.nikitabolshakov.pictureoftheday.view.api.ApiActivity
+import com.nikitabolshakov.pictureoftheday.view.api.ApiBottomActivity
 import com.nikitabolshakov.pictureoftheday.viewmodel.PODState
 import com.nikitabolshakov.pictureoftheday.viewmodel.PODViewModel
 
@@ -103,7 +104,14 @@ class PODFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_favourite -> toast("Favourite")
+            R.id.app_bar_favourite -> activity?.let {
+                startActivity(
+                    Intent(
+                        it,
+                        ApiBottomActivity::class.java
+                    )
+                )
+            }
             R.id.app_bar_chips ->
                 activity
                     ?.supportFragmentManager?.beginTransaction()
