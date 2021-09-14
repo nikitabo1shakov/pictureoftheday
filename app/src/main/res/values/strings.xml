@@ -47,4 +47,9 @@
     <string name="weather">Weather</string>
     <string name="mars">Mars</string>
     <string name="earth">Earth</string>
+
+    <!-- Ref -->
+    <string name="bnv_home">Home</string>
+    <string name="bnv_api">API</string>
+    <string name="bnv_settings">Settings</string>
 </resources>
