@@ -17,6 +17,7 @@ import com.nikitabolshakov.pictureoftheday.databinding.FragmentPodBinding
 import com.nikitabolshakov.pictureoftheday.model.utils.hide
 import com.nikitabolshakov.pictureoftheday.model.utils.show
 import com.nikitabolshakov.pictureoftheday.model.utils.toast
+import com.nikitabolshakov.pictureoftheday.view.api.ApiActivity
 import com.nikitabolshakov.pictureoftheday.viewmodel.PODState
 import com.nikitabolshakov.pictureoftheday.viewmodel.PODViewModel
 
@@ -120,6 +121,9 @@ class PODFragment : Fragment() {
                     ?.replace(R.id.container, SettingsFragment.newInstance())
                     ?.addToBackStack(null)
                     ?.commit()
+            R.id.app_bar_api -> activity?.let {
+                startActivity(Intent(it, ApiActivity::class.java))
+            }
         }
         return super.onOptionsItemSelected(item)
     }
