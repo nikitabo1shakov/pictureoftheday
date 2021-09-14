@@ -40,6 +40,11 @@ class ApiBottomActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.selectedItemId = R.id.bottom_view_earth
 
+        binding.bottomNavigationView.getOrCreateBadge(R.id.bottom_view_earth)
+        val badge = binding.bottomNavigationView.getBadge(R.id.bottom_view_earth)
+        badge?.maxCharacterCount = 2
+        badge?.number = 999
+
         binding.bottomNavigationView.setOnNavigationItemReselectedListener { item ->
             when (item.itemId) {
                 R.id.bottom_view_earth -> {
