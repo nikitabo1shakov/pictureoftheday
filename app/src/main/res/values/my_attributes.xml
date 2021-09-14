@@ -3,6 +3,7 @@
     <attr name="textColorConnected" format="reference" />
     <attr name="textColorDisConnected" format="reference" />
     <attr name="themeColorPrimary" format="reference" />
+    <attr name="themeColorPrimaryVariant" format="reference" />
     <attr name="textColorPrimary" format="reference" />
     <attr name="textColorSecondary" format="reference" />
 </resources>

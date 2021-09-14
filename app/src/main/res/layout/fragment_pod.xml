@@ -22,6 +22,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/search_wiki"
+                app:boxBackgroundColor="@color/light_gray"
                 app:counterEnabled="true"
                 app:counterMaxLength="25"
                 app:endIconCheckable="true"
@@ -54,8 +55,7 @@
 
             <TextView
                 android:id="@+id/text_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                style="@style/TextViewUnderImage"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

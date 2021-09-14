@@ -103,7 +103,7 @@ class PODFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.app_bar_favourite -> toast("Favourite")
-            R.id.app_bar_settings ->
+            R.id.app_bar_chips ->
                 activity
                     ?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.container, ChipsFragment.newInstance())
@@ -114,6 +114,12 @@ class PODFragment : Fragment() {
                     BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
                 }
             }
+            R.id.app_bar_settings ->
+                activity
+                    ?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.container, SettingsFragment.newInstance())
+                    ?.addToBackStack(null)
+                    ?.commit()
         }
         return super.onOptionsItemSelected(item)
     }

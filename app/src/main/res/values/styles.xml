@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Themes -->
-    <!-- Indigo -->
-    <style name="AppTheme.IndigoTheme">
-        <item name="colorPrimaryDark">@color/dark_indigo</item>
-        <item name="colorAccent">@color/violet</item>
-        <item name="themeColorPrimary">@color/indigo</item>
+    <!-- fragment_settings -->
+    <style name="Button">
+        <item name="android:backgroundTint">@color/light_red</item>
+        <item name="android:layout_marginStart">50sp</item>
+        <item name="android:layout_marginEnd">50sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
-    <!-- Pink -->
-    <style name="AppTheme.PinkTheme">
-        <item name="colorPrimaryDark">@color/pink_dark</item>
-        <item name="android:background">@color/pink</item>
-        <item name="colorAccent">@color/pink_light</item>
-        <item name="themeColorPrimary">@color/pink</item>
-    </style>
-    <!-- General -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">?themeColorPrimary</item>
-        <item name="textColorPrimary">@color/black</item>
-        <item name="textColorSecondary">@color/color_gray</item>
-        <item name="textColorConnected">@color/green</item>
-        <item name="textColorDisConnected">@color/light_gray</item>
+    <!-- fragment_pod -->
+    <style name="TextViewUnderImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/light_gray</item>
+        <item name="android:gravity">center</item>
     </style>
 </resources>

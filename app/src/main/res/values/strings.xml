@@ -34,4 +34,13 @@
     <string name="horizontal">horizontal</string>
     <string name="scroll">scroll</string>
     <string name="close_icon_listener">Close Icon Listener</string>
+
+    <string name="chips">chips</string>
+
+    <string name="settings_theme_pink">pink</string>
+    <string name="settings_theme_yellow">yellow</string>
+    <string name="settings_theme_green">green</string>
+    <string name="something_say">Something Say</string>
+    <string name="_1">На экран 1</string>
+    <string name="_2">На экран 2</string>
 </resources>

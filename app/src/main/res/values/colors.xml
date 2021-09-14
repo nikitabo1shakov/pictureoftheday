@@ -11,7 +11,6 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorAccent">#D81B60</color>
     <color name="loadingBackground">#80FFFFFF</color>
-
     <color name="green">#008000</color>
     <color name="light_gray">#D3D3D3</color>
     <color name="indigo">#4B0082</color>
@@ -21,4 +20,13 @@
     <color name="pink_dark">#FF1493</color>
     <color name="pink_light">#FFB6C1</color>
     <color name="yellow">#FFFF00</color>
+    <color name="red">#E71000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="background">#FAFAFA</color>
+    <color name="light_red">#FFAAA4</color>
+    <color name="gold">#FFD700</color>
+    <color name="lime">#00FF00</color>
+    <color name="pale_green">#98FB98</color>
+    <color name="light_yellow">#FFEF82</color>
+    <color name="light_green">#89FF87</color>
 </resources>

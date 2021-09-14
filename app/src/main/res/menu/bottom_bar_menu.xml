@@ -8,6 +8,12 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/app_bar_chips"
+        android:icon="@drawable/ic_chips"
+        android:title="@string/chips"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/app_bar_settings"
         android:icon="@drawable/ic_settings_menu"
         android:title="@string/settings"
