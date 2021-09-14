@@ -23,4 +23,5 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) :
     }
 
     override fun getCount(): Int = fragments.size
+    override fun getPageTitle(position: Int): CharSequence? = null
 }

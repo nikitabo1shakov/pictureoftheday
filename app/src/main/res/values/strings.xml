@@ -44,4 +44,7 @@
     <string name="_1">На экран 1</string>
     <string name="_2">На экран 2</string>
     <string name="api">api</string>
+    <string name="weather">Weather</string>
+    <string name="mars">Mars</string>
+    <string name="earth">Earth</string>
 </resources>
