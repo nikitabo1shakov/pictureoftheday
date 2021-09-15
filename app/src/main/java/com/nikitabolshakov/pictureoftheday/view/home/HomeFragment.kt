@@ -13,8 +13,8 @@ import com.nikitabolshakov.pictureoftheday.databinding.FragmentHomeBinding
 import com.nikitabolshakov.pictureoftheday.model.utils.hide
 import com.nikitabolshakov.pictureoftheday.model.utils.show
 import com.nikitabolshakov.pictureoftheday.model.utils.toast
-import com.nikitabolshakov.pictureoftheday.viewmodel.APODState
-import com.nikitabolshakov.pictureoftheday.viewmodel.APODViewModel
+import com.nikitabolshakov.pictureoftheday.viewmodel.apod.APODState
+import com.nikitabolshakov.pictureoftheday.viewmodel.apod.APODViewModel
 
 class HomeFragment : Fragment() {
 

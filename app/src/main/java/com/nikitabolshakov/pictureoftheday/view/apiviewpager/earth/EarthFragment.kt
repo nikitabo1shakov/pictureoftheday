@@ -13,9 +13,8 @@ import com.nikitabolshakov.pictureoftheday.databinding.FragmentEarthBinding
 import com.nikitabolshakov.pictureoftheday.model.utils.hide
 import com.nikitabolshakov.pictureoftheday.model.utils.show
 import com.nikitabolshakov.pictureoftheday.model.utils.toast
-import com.nikitabolshakov.pictureoftheday.viewmodel.APODState
-import com.nikitabolshakov.pictureoftheday.viewmodel.EarthState
-import com.nikitabolshakov.pictureoftheday.viewmodel.EarthViewModel
+import com.nikitabolshakov.pictureoftheday.viewmodel.earth.EarthState
+import com.nikitabolshakov.pictureoftheday.viewmodel.earth.EarthViewModel
 
 class EarthFragment : Fragment() {
 
@@ -46,6 +45,7 @@ class EarthFragment : Fragment() {
         when (state) {
             is EarthState.Success -> {
                 binding.earthFragment.show()
+                binding.includedLoadingLayout.loadingLayout.hide()
                 val serverResponseData = state.serverResponseData
                 val url = serverResponseData.url
                 if (url.isEmpty()) {
@@ -60,10 +60,11 @@ class EarthFragment : Fragment() {
             }
             is EarthState.Loading -> {
                 binding.earthFragment.hide()
-
+                binding.includedLoadingLayout.loadingLayout.show()
             }
             is EarthState.Error -> {
                 binding.earthFragment.show()
+                binding.includedLoadingLayout.loadingLayout.hide()
                 toast("Error")
             }
         }

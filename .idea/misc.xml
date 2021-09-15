@@ -10,6 +10,9 @@
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_android.xml" value="0.25277777777777777" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_archive.xml" value="0.225" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_back_fab.xml" value="0.225" />
+        <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_bnv_api.xml" value="0.2777777777777778" />
+        <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_bnv_home.xml" value="0.2777777777777778" />
+        <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_bnv_settings.xml" value="0.2777777777777778" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_bnv_space.xml" value="0.27314814814814814" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_chips.xml" value="0.25277777777777777" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/drawable/ic_earth.xml" value="0.2824074074074074" />
@@ -39,7 +42,9 @@
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.19293478260869565" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.19293478260869565" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_api.xml" value="0.17572463768115942" />
+        <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_api_custom_tab_earth.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_api_custom_tab_mars.xml" value="0.17572463768115942" />
+        <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_api_custom_tab_weather.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_chips.xml" value="0.264" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_earht.xml" value="0.19972826086956522" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_earth.xml" value="0.19972826086956522" />

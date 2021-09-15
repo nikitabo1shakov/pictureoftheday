@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.viewmodel
+package com.nikitabolshakov.pictureoftheday.viewmodel.earth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -22,13 +22,11 @@ class EarthViewModel(
 
     private fun sendServerRequest() {
         liveStateForViewToObserve.value = EarthState.Loading(null)
-
         val lon = 95.33F
         val lat = 29.78F
         val date = "2021-09-01"
         val dim = 0.10F
         val apiKey: String = BuildConfig.NASA_API_KEY
-
         if (apiKey.isBlank()) {
             EarthState.Error(Throwable("You need API key"))
         } else {

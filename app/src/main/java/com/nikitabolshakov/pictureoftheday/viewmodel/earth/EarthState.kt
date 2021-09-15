@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.viewmodel
+package com.nikitabolshakov.pictureoftheday.viewmodel.earth
 
 import com.nikitabolshakov.pictureoftheday.model.api.earth.EarthServerResponseData
 

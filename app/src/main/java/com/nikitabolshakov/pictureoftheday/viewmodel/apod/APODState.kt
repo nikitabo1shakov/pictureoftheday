@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.viewmodel
+package com.nikitabolshakov.pictureoftheday.viewmodel.apod
 
 import com.nikitabolshakov.pictureoftheday.model.api.apod.APODServerResponseData
 

@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.viewmodel
+package com.nikitabolshakov.pictureoftheday.viewmodel.mars
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

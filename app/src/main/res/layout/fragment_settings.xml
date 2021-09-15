@@ -30,4 +30,5 @@
         android:contentDescription="@string/something_say"
         app:srcCompat="@drawable/ic_android"
         app:tint="@color/white" />
+
 </LinearLayout>

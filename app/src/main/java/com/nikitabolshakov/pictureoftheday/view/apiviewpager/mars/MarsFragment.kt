@@ -1,6 +1,5 @@
 package com.nikitabolshakov.pictureoftheday.view.apiviewpager.mars
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import coil.api.load
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.FragmentMarsBinding
-import com.nikitabolshakov.pictureoftheday.model.api.marsroverphotos.MRFServerResponseData
 import com.nikitabolshakov.pictureoftheday.model.utils.hide
 import com.nikitabolshakov.pictureoftheday.model.utils.show
 import com.nikitabolshakov.pictureoftheday.model.utils.toast
-import com.nikitabolshakov.pictureoftheday.viewmodel.APODState
-import com.nikitabolshakov.pictureoftheday.viewmodel.MRFState
-import com.nikitabolshakov.pictureoftheday.viewmodel.MRFViewModel
+import com.nikitabolshakov.pictureoftheday.viewmodel.mars.MRFState
+import com.nikitabolshakov.pictureoftheday.viewmodel.mars.MRFViewModel
 
 class MarsFragment : Fragment() {
 
@@ -47,7 +44,8 @@ class MarsFragment : Fragment() {
     private fun renderData(state: MRFState) {
         when (state) {
             is MRFState.Success -> {
-                binding.marsFragment
+                binding.marsFragment.show()
+                binding.includedLoadingLayout.loadingLayout.hide()
                 val serverResponseData = state.serverResponseData
                 val listPhotos = serverResponseData.photos
                 val photoUrl = listPhotos[50].img_src
@@ -62,10 +60,12 @@ class MarsFragment : Fragment() {
                 }
             }
             is MRFState.Loading -> {
-                binding.marsFragment
+                binding.marsFragment.hide()
+                binding.includedLoadingLayout.loadingLayout.show()
             }
             is MRFState.Error -> {
-                binding.marsFragment
+                binding.marsFragment.show()
+                binding.includedLoadingLayout.loadingLayout.hide()
                 toast("Error")
             }
         }
