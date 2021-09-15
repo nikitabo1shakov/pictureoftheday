@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
     private fun renderData(state: APODState) {
         when (state) {
             is APODState.Success -> {
-                binding.mainFragment.show()
+                binding.homeFragment.show()
                 binding.includedLoadingLayout.loadingLayout.hide()
                 val serverResponseData = state.serverResponseData
                 val hdUrl = serverResponseData.hdurl
@@ -71,11 +71,11 @@ class HomeFragment : Fragment() {
                 }
             }
             is APODState.Loading -> {
-                binding.mainFragment.hide()
+                binding.homeFragment.hide()
                 binding.includedLoadingLayout.loadingLayout.show()
             }
             is APODState.Error -> {
-                binding.mainFragment.show()
+                binding.homeFragment.show()
                 binding.includedLoadingLayout.loadingLayout.hide()
                 toast("Error")
             }
