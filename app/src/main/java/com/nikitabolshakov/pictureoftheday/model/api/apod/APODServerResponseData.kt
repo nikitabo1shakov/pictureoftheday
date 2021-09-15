@@ -1,8 +1,8 @@
-package com.nikitabolshakov.pictureoftheday.model.retrofit
+package com.nikitabolshakov.pictureoftheday.model.api.apod
 
 import com.google.gson.annotations.SerializedName
 
-data class PODServerResponseData(
+data class APODServerResponseData(
     @field:SerializedName("copyright") val copyright: String?,
     @field:SerializedName("date") val date: String?,
     @field:SerializedName("explanation") val explanation: String?,

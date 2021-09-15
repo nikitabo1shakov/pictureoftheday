@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.model.retrofit
+package com.nikitabolshakov.pictureoftheday.model.api.apod
 
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -8,9 +8,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
-class PODRetrofitImpl {
+class APODImpl {
 
-    inner class PODInterceptor : Interceptor {
+    inner class APODInterceptor : Interceptor {
 
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
@@ -18,17 +18,17 @@ class PODRetrofitImpl {
         }
     }
 
-    fun getRetrofitImpl(): PictureOfTheDayAPI {
-        val podRetrofit = Retrofit.Builder()
+    fun getAPODImpl(): APOD {
+        val apodRetrofit = Retrofit.Builder()
             .baseUrl("https://api.nasa.gov/")
             .addConverterFactory(
                 GsonConverterFactory.create(
                     GsonBuilder().setLenient().create()
                 )
             )
-            .client(createOkHttpClient(PODInterceptor()))
+            .client(createOkHttpClient(APODInterceptor()))
             .build()
-        return podRetrofit.create(PictureOfTheDayAPI::class.java)
+        return apodRetrofit.create(APOD::class.java)
     }
 
     private fun createOkHttpClient(interceptor: Interceptor): OkHttpClient {

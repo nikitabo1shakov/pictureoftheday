@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.view
+package com.nikitabolshakov.pictureoftheday.view.home
 
 import android.content.Intent
 import android.net.Uri
@@ -9,34 +9,34 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.api.load
 import com.nikitabolshakov.pictureoftheday.R
-import com.nikitabolshakov.pictureoftheday.databinding.FragmentMainBinding
+import com.nikitabolshakov.pictureoftheday.databinding.FragmentHomeBinding
 import com.nikitabolshakov.pictureoftheday.model.utils.hide
 import com.nikitabolshakov.pictureoftheday.model.utils.show
 import com.nikitabolshakov.pictureoftheday.model.utils.toast
-import com.nikitabolshakov.pictureoftheday.viewmodel.PODState
-import com.nikitabolshakov.pictureoftheday.viewmodel.PODViewModel
+import com.nikitabolshakov.pictureoftheday.viewmodel.APODState
+import com.nikitabolshakov.pictureoftheday.viewmodel.APODViewModel
 
-class MainFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    private val viewModel: PODViewModel by lazy {
-        ViewModelProvider(this).get(PODViewModel::class.java)
+    private val viewModel: APODViewModel by lazy {
+        ViewModelProvider(this).get(APODViewModel::class.java)
     }
 
-    private var _binding: FragmentMainBinding? = null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val observer = Observer<PODState> { renderData(it) }
+        val observer = Observer<APODState> { renderData(it) }
         viewModel.getData().observe(viewLifecycleOwner, observer)
 
         binding.textInputLayout.setEndIconOnClickListener {
@@ -47,9 +47,9 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun renderData(state: PODState) {
+    private fun renderData(state: APODState) {
         when (state) {
-            is PODState.Success -> {
+            is APODState.Success -> {
                 binding.mainFragment.show()
                 binding.includedLoadingLayout.loadingLayout.hide()
                 val serverResponseData = state.serverResponseData
@@ -59,7 +59,7 @@ class MainFragment : Fragment() {
                     toast("Image Link is Empty")
                 } else {
                     binding.imageViewOfTheDay.load(hdUrl) {
-                        lifecycle(this@MainFragment)
+                        lifecycle(this@HomeFragment)
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
@@ -70,11 +70,11 @@ class MainFragment : Fragment() {
                     binding.textViewOfTheDay.text = copyright
                 }
             }
-            is PODState.Loading -> {
+            is APODState.Loading -> {
                 binding.mainFragment.hide()
                 binding.includedLoadingLayout.loadingLayout.show()
             }
-            is PODState.Error -> {
+            is APODState.Error -> {
                 binding.mainFragment.show()
                 binding.includedLoadingLayout.loadingLayout.hide()
                 toast("Error")

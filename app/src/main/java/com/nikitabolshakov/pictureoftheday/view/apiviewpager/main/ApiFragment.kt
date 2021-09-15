@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.view.api
+package com.nikitabolshakov.pictureoftheday.view.apiviewpager.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle

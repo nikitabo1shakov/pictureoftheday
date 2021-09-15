@@ -1,8 +1,11 @@
-package com.nikitabolshakov.pictureoftheday.view.api
+package com.nikitabolshakov.pictureoftheday.view.apiviewpager.main
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.nikitabolshakov.pictureoftheday.view.apiviewpager.earth.EarthFragment
+import com.nikitabolshakov.pictureoftheday.view.apiviewpager.mars.MarsFragment
+import com.nikitabolshakov.pictureoftheday.view.apiviewpager.weather.WeatherFragment
 
 private const val EARTH_FRAGMENT = 0
 private const val MARS_FRAGMENT = 1
@@ -23,5 +26,6 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) :
     }
 
     override fun getCount(): Int = fragments.size
+
     override fun getPageTitle(position: Int): CharSequence? = null
 }

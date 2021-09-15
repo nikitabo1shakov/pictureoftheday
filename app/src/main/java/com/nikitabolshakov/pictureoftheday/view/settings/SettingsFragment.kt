@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.view
+package com.nikitabolshakov.pictureoftheday.view.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,6 @@ import com.nikitabolshakov.pictureoftheday.databinding.FragmentSettingsBinding
 import com.nikitabolshakov.pictureoftheday.model.utils.toast
 
 class SettingsFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = SettingsFragment()
-    }
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!

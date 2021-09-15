@@ -1,15 +1,15 @@
-package com.nikitabolshakov.pictureoftheday.view.api
+package com.nikitabolshakov.pictureoftheday.view.apiviewpager.mars
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.nikitabolshakov.pictureoftheday.databinding.FragmentEarthBinding
+import com.nikitabolshakov.pictureoftheday.databinding.FragmentMarsBinding
 
-class EarthFragment : Fragment() {
+class MarsFragment : Fragment() {
 
-    private var _binding: FragmentEarthBinding? = null
+    private var _binding: FragmentMarsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class EarthFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentEarthBinding.inflate(inflater, container, false)
+        _binding = FragmentMarsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -1,14 +1,14 @@
-package com.nikitabolshakov.pictureoftheday.model.retrofit
+package com.nikitabolshakov.pictureoftheday.model.api.apod
 
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface PictureOfTheDayAPI {
+interface APOD {
 
     @GET("planetary/apod")
-    fun getPictureOfTheDay(
+    fun getAPOD(
         @Query("date") date: String?,
         @Query("api_key") apiKey: String
-    ): Call<PODServerResponseData>
+    ): Call<APODServerResponseData>
 }
