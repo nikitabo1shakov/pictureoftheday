@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.ActivityMainBinding
-import com.nikitabolshakov.pictureoftheday.view.apiviewpager.main.ApiFragment
+import com.nikitabolshakov.pictureoftheday.view.api.viewpager.ViewPagerFragment
 import com.nikitabolshakov.pictureoftheday.view.home.HomeFragment
 import com.nikitabolshakov.pictureoftheday.view.settings.SettingsFragment
 
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bnv_api -> {
-                    openApiFragment()
+                    openViewPagerFragment()
                     true
                 }
                 R.id.bnv_settings -> {
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                     openHomeFragment()
                 }
                 R.id.bnv_api -> {
-                    openApiFragment()
+                    openViewPagerFragment()
                 }
                 R.id.bnv_settings -> {
                     openSettingsFragment()
@@ -66,9 +66,9 @@ class MainActivity : AppCompatActivity() {
             .commitAllowingStateLoss()
     }
 
-    private fun openApiFragment() {
+    private fun openViewPagerFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(binding.mainActivityContainer.id, ApiFragment())
+            .replace(binding.mainActivityContainer.id, ViewPagerFragment())
             .commitAllowingStateLoss()
     }
 

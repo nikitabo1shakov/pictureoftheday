@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.view.apiviewpager.weather
+package com.nikitabolshakov.pictureoftheday.view.api.weather
 
 import android.os.Bundle
 import android.view.LayoutInflater

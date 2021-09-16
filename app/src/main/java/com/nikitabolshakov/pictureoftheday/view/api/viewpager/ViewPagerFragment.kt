@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.view.apiviewpager.main
+package com.nikitabolshakov.pictureoftheday.view.api.viewpager
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,15 +10,15 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.nikitabolshakov.pictureoftheday.R
-import com.nikitabolshakov.pictureoftheday.databinding.FragmentApiBinding
+import com.nikitabolshakov.pictureoftheday.databinding.FragmentViewPagerBinding
 
 private const val EARTH = 0
 private const val MARS = 1
 private const val WEATHER = 2
 
-class ApiFragment : Fragment() {
+class ViewPagerFragment : Fragment() {
 
-    private var _binding: FragmentApiBinding? = null
+    private var _binding: FragmentViewPagerBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -26,21 +26,24 @@ class ApiFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentApiBinding.inflate(inflater, container, false)
+        _binding = FragmentViewPagerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val mPager: ViewPager = binding.viewPager
+        mPager.setPageTransformer(true, ZoomOutPageTransformer())
+
         with(binding) {
 
-            apiViewPager.adapter = ViewPagerAdapter(childFragmentManager)
-            apiTabLayout.setupWithViewPager(apiViewPager)
+            viewPager.adapter = ViewPagerAdapter(childFragmentManager)
+            tabLayout.setupWithViewPager(viewPager)
 
             setHighlightedTab(EARTH)
 
-            apiViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
 
                 override fun onPageSelected(position: Int) {
                     setHighlightedTab(position)
@@ -62,9 +65,9 @@ class ApiFragment : Fragment() {
         val layoutInflater = LayoutInflater.from(requireContext())
 
         with(binding) {
-            apiTabLayout.getTabAt(EARTH)?.customView = null
-            apiTabLayout.getTabAt(MARS)?.customView = null
-            apiTabLayout.getTabAt(WEATHER)?.customView = null
+            tabLayout.getTabAt(EARTH)?.customView = null
+            tabLayout.getTabAt(MARS)?.customView = null
+            tabLayout.getTabAt(WEATHER)?.customView = null
         }
 
         when (position) {
@@ -95,10 +98,10 @@ class ApiFragment : Fragment() {
                 )
             )
         with(binding) {
-            apiTabLayout.getTabAt(EARTH)?.customView = earth
-            apiTabLayout.getTabAt(MARS)?.customView =
+            tabLayout.getTabAt(EARTH)?.customView = earth
+            tabLayout.getTabAt(MARS)?.customView =
                 layoutInflater.inflate(R.layout.fragment_api_custom_tab_mars, null)
-            apiTabLayout.getTabAt(WEATHER)?.customView =
+            tabLayout.getTabAt(WEATHER)?.customView =
                 layoutInflater.inflate(R.layout.fragment_api_custom_tab_weather, null)
         }
     }
@@ -115,10 +118,10 @@ class ApiFragment : Fragment() {
                 )
             )
         with(binding) {
-            apiTabLayout.getTabAt(EARTH)?.customView =
+            tabLayout.getTabAt(EARTH)?.customView =
                 layoutInflater.inflate(R.layout.fragment_api_custom_tab_earth, null)
-            apiTabLayout.getTabAt(MARS)?.customView = mars
-            apiTabLayout.getTabAt(WEATHER)?.customView =
+            tabLayout.getTabAt(MARS)?.customView = mars
+            tabLayout.getTabAt(WEATHER)?.customView =
                 layoutInflater.inflate(R.layout.fragment_api_custom_tab_weather, null)
         }
     }
@@ -135,11 +138,11 @@ class ApiFragment : Fragment() {
                 )
             )
         with(binding) {
-            apiTabLayout.getTabAt(EARTH)?.customView =
+            tabLayout.getTabAt(EARTH)?.customView =
                 layoutInflater.inflate(R.layout.fragment_api_custom_tab_earth, null)
-            apiTabLayout.getTabAt(MARS)?.customView =
+            tabLayout.getTabAt(MARS)?.customView =
                 layoutInflater.inflate(R.layout.fragment_api_custom_tab_mars, null)
-            apiTabLayout.getTabAt(WEATHER)?.customView = weather
+            tabLayout.getTabAt(WEATHER)?.customView = weather
         }
     }
 

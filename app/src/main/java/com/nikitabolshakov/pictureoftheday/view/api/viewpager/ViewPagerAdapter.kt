@@ -1,11 +1,11 @@
-package com.nikitabolshakov.pictureoftheday.view.apiviewpager.main
+package com.nikitabolshakov.pictureoftheday.view.api.viewpager
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.nikitabolshakov.pictureoftheday.view.apiviewpager.earth.EarthFragment
-import com.nikitabolshakov.pictureoftheday.view.apiviewpager.mars.MarsFragment
-import com.nikitabolshakov.pictureoftheday.view.apiviewpager.weather.WeatherFragment
+import com.nikitabolshakov.pictureoftheday.view.api.earth.EarthFragment
+import com.nikitabolshakov.pictureoftheday.view.api.mars.MarsFragment
+import com.nikitabolshakov.pictureoftheday.view.api.weather.WeatherFragment
 
 private const val EARTH_FRAGMENT = 0
 private const val MARS_FRAGMENT = 1

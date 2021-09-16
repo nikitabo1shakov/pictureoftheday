@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.view.apiviewpager.mars
+package com.nikitabolshakov.pictureoftheday.view.api.mars
 
 import android.os.Bundle
 import android.view.LayoutInflater

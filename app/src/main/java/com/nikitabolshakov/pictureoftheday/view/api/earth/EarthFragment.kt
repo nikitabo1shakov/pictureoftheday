@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.view.apiviewpager.earth
+package com.nikitabolshakov.pictureoftheday.view.api.earth
 
 import android.os.Bundle
 import android.view.LayoutInflater
