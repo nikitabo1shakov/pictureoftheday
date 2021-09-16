@@ -9,8 +9,11 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.FragmentViewPagerBinding
+import me.relex.circleindicator.CircleIndicator
+import me.relex.circleindicator.CircleIndicator3
 
 private const val EARTH = 0
 private const val MARS = 1
@@ -33,8 +36,15 @@ class ViewPagerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val mPager: ViewPager = binding.viewPager
-        mPager.setPageTransformer(true, ZoomOutPageTransformer())
+        val myViewPager: ViewPager = binding.viewPager
+        myViewPager.setPageTransformer(true, ZoomOutPageTransformer())
+
+        myViewPager.adapter
+
+        val indicator: CircleIndicator = binding.indicator
+
+        indicator.setViewPager(myViewPager)
+        indicator.createIndicators(3, 0)
 
         with(binding) {
 
@@ -103,6 +113,7 @@ class ViewPagerFragment : Fragment() {
                 layoutInflater.inflate(R.layout.fragment_api_custom_tab_mars, null)
             tabLayout.getTabAt(WEATHER)?.customView =
                 layoutInflater.inflate(R.layout.fragment_api_custom_tab_weather, null)
+            indicator.animatePageSelected(0)
         }
     }
 
@@ -123,6 +134,7 @@ class ViewPagerFragment : Fragment() {
             tabLayout.getTabAt(MARS)?.customView = mars
             tabLayout.getTabAt(WEATHER)?.customView =
                 layoutInflater.inflate(R.layout.fragment_api_custom_tab_weather, null)
+            indicator.animatePageSelected(1)
         }
     }
 
@@ -143,6 +155,7 @@ class ViewPagerFragment : Fragment() {
             tabLayout.getTabAt(MARS)?.customView =
                 layoutInflater.inflate(R.layout.fragment_api_custom_tab_mars, null)
             tabLayout.getTabAt(WEATHER)?.customView = weather
+            indicator.animatePageSelected(2)
         }
     }
 
