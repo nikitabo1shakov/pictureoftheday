@@ -9,11 +9,9 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.widget.ViewPager2
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.FragmentViewPagerBinding
 import me.relex.circleindicator.CircleIndicator
-import me.relex.circleindicator.CircleIndicator3
 
 private const val EARTH = 0
 private const val MARS = 1
@@ -99,8 +97,8 @@ class ViewPagerFragment : Fragment() {
     @SuppressLint("InflateParams")
     private fun setEarthTabHighlighted(layoutInflater: LayoutInflater) {
         val earth =
-            layoutInflater.inflate(R.layout.fragment_api_custom_tab_earth, null)
-        earth.findViewById<AppCompatTextView>(R.id.tab_image_textview)
+            layoutInflater.inflate(R.layout.custom_tab_earth_layout, null)
+        earth.findViewById<AppCompatTextView>(R.id.tab_earth)
             .setTextColor(
                 ContextCompat.getColor(
                     requireContext(),
@@ -110,9 +108,9 @@ class ViewPagerFragment : Fragment() {
         with(binding) {
             tabLayout.getTabAt(EARTH)?.customView = earth
             tabLayout.getTabAt(MARS)?.customView =
-                layoutInflater.inflate(R.layout.fragment_api_custom_tab_mars, null)
+                layoutInflater.inflate(R.layout.custom_tab_mars_layout, null)
             tabLayout.getTabAt(WEATHER)?.customView =
-                layoutInflater.inflate(R.layout.fragment_api_custom_tab_weather, null)
+                layoutInflater.inflate(R.layout.custom_tab_weather_layout, null)
             indicator.animatePageSelected(0)
         }
     }
@@ -120,8 +118,8 @@ class ViewPagerFragment : Fragment() {
     @SuppressLint("InflateParams")
     private fun setMarsTabHighlighted(layoutInflater: LayoutInflater) {
         val mars =
-            layoutInflater.inflate(R.layout.fragment_api_custom_tab_mars, null)
-        mars.findViewById<AppCompatTextView>(R.id.tab_image_textview)
+            layoutInflater.inflate(R.layout.custom_tab_mars_layout, null)
+        mars.findViewById<AppCompatTextView>(R.id.tab_mars)
             .setTextColor(
                 ContextCompat.getColor(
                     requireContext(),
@@ -130,10 +128,10 @@ class ViewPagerFragment : Fragment() {
             )
         with(binding) {
             tabLayout.getTabAt(EARTH)?.customView =
-                layoutInflater.inflate(R.layout.fragment_api_custom_tab_earth, null)
+                layoutInflater.inflate(R.layout.custom_tab_earth_layout, null)
             tabLayout.getTabAt(MARS)?.customView = mars
             tabLayout.getTabAt(WEATHER)?.customView =
-                layoutInflater.inflate(R.layout.fragment_api_custom_tab_weather, null)
+                layoutInflater.inflate(R.layout.custom_tab_weather_layout, null)
             indicator.animatePageSelected(1)
         }
     }
@@ -141,8 +139,8 @@ class ViewPagerFragment : Fragment() {
     @SuppressLint("InflateParams")
     private fun setWeatherTabHighlighted(layoutInflater: LayoutInflater) {
         val weather =
-            layoutInflater.inflate(R.layout.fragment_api_custom_tab_weather, null)
-        weather.findViewById<AppCompatTextView>(R.id.tab_image_textview)
+            layoutInflater.inflate(R.layout.custom_tab_weather_layout, null)
+        weather.findViewById<AppCompatTextView>(R.id.tab_weather)
             .setTextColor(
                 ContextCompat.getColor(
                     requireContext(),
@@ -151,9 +149,9 @@ class ViewPagerFragment : Fragment() {
             )
         with(binding) {
             tabLayout.getTabAt(EARTH)?.customView =
-                layoutInflater.inflate(R.layout.fragment_api_custom_tab_earth, null)
+                layoutInflater.inflate(R.layout.custom_tab_earth_layout, null)
             tabLayout.getTabAt(MARS)?.customView =
-                layoutInflater.inflate(R.layout.fragment_api_custom_tab_mars, null)
+                layoutInflater.inflate(R.layout.custom_tab_mars_layout, null)
             tabLayout.getTabAt(WEATHER)?.customView = weather
             indicator.animatePageSelected(2)
         }

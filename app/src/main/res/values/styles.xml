@@ -24,7 +24,6 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:contentDescription">@string/photo_of_the_day_stub</item>
     </style>
-
     <!-- MaterialCardView -->
     <style name="MaterialCardView_MyStyle_1">
         <item name="android:layout_width">match_parent</item>
@@ -44,9 +43,7 @@
     </style>
 
 
-
-
-    <!-- fragment_settings -->
+    <!-- Settings Fragment -->
     <style name="Button">
         <item name="android:backgroundTint">@color/light_red</item>
         <item name="android:layout_marginStart">50sp</item>
@@ -56,5 +53,4 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-
 </resources>

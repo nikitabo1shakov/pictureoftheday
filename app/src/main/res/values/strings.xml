@@ -4,18 +4,13 @@
     <string name="photo_of_the_day_stub">Photo of the day</string>
     <string name="search_wiki">Найти в Википедии</string>
     <string name="wiki_helper_text">Поищите термин в википедии</string>
-
     <string name="settings_theme_pink">pink</string>
     <string name="settings_theme_yellow">yellow</string>
     <string name="settings_theme_green">green</string>
     <string name="something_say">Something Say</string>
-    <string name="_1">На экран 1</string>
-    <string name="_2">На экран 2</string>
-    <string name="api">api</string>
     <string name="weather">Weather</string>
     <string name="mars">Mars</string>
     <string name="earth">Earth</string>
-
     <string name="bnv_home">Home</string>
     <string name="bnv_api">API</string>
     <string name="bnv_settings">Settings</string>

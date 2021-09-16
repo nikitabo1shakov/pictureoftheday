@@ -53,12 +53,12 @@ class HomeFragment : Fragment() {
                 binding.homeFragment.show()
                 binding.includedLoadingLayout.loadingLayout.hide()
                 val serverResponseData = state.serverResponseData
-                val hdUrl = serverResponseData.hdurl
+                val url = serverResponseData.url
                 val copyright = serverResponseData.copyright
-                if (hdUrl.isNullOrEmpty()) {
+                if (url.isNullOrEmpty()) {
                     toast("Image Link is Empty")
                 } else {
-                    binding.apodImageView.load(hdUrl) {
+                    binding.apodImageView.load(url) {
                         lifecycle(this@HomeFragment)
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)

@@ -48,7 +48,7 @@ class MarsFragment : Fragment() {
                 binding.includedLoadingLayout.loadingLayout.hide()
                 val serverResponseData = state.serverResponseData
                 val listPhotos = serverResponseData.photos
-                val photoUrl = listPhotos[50].img_src
+                val photoUrl = listPhotos[50].imgSrc
                 if (listPhotos.isNullOrEmpty()) {
                     toast("ListPhotos Link is Empty")
                 } else {
