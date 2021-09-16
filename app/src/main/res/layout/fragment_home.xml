@@ -15,50 +15,47 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/text_input_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:hint="@string/search_wiki"
+                style="@style/TextInputLayout_MyStyle_1"
                 app:counterEnabled="true"
-                app:counterMaxLength="31"
+                app:counterMaxLength="30"
+                app:counterTextColor="@color/green"
                 app:endIconCheckable="true"
                 app:endIconDrawable="@drawable/ic_wikipedia"
                 app:endIconMode="custom"
                 app:helperText="@string/wiki_helper_text"
-                app:layout_constraintBottom_toTopOf="@+id/image_view_of_the_day"
+                app:layout_constraintBottom_toTopOf="@+id/apod_image_view"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/text_input_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    style="@style/TextInputEditText_MyStyle_1" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.nikitabolshakov.pictureoftheday.model.utils.EquilateralImageView
-                android:id="@+id/image_view_of_the_day"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="@string/photo_of_the_day_stub"
+                android:id="@+id/apod_image_view"
+                style="@style/EquilateralImageView_MyStyle_1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_no_photo_vector" />
 
-            <TextView
-                android:id="@+id/text_view_of_the_day"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <com.google.android.material.card.MaterialCardView
+                style="@style/MaterialCardView_MyStyle_1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_view_of_the_day" />
+                app:layout_constraintTop_toBottomOf="@+id/apod_image_view">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apod_text_view"
+                    style="@style/AppCompatTextView_MyStyle_1" />
+
+            </com.google.android.material.card.MaterialCardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

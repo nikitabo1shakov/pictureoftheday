@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
                 if (hdUrl.isNullOrEmpty()) {
                     toast("Image Link is Empty")
                 } else {
-                    binding.imageViewOfTheDay.load(hdUrl) {
+                    binding.apodImageView.load(hdUrl) {
                         lifecycle(this@HomeFragment)
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
@@ -67,7 +67,7 @@ class HomeFragment : Fragment() {
                 if (copyright.isNullOrEmpty()) {
                     toast("Copyright Link is Empty")
                 } else {
-                    binding.textViewOfTheDay.text = copyright
+                    binding.apodTextView.text = copyright
                 }
             }
             is APODState.Loading -> {

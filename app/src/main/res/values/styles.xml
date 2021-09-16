@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Home Fragment -->
+    <!-- TextInputLayout -->
+    <style name="TextInputLayout_MyStyle_1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">25dp</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:hint">@string/search_wiki</item>
+    </style>
+
+    <style name="TextInputEditText_MyStyle_1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <!-- EquilateralImageView -->
+    <style name="EquilateralImageView_MyStyle_1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:contentDescription">@string/photo_of_the_day_stub</item>
+    </style>
+
+    <!-- MaterialCardView -->
+    <style name="MaterialCardView_MyStyle_1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">25dp</item>
+    </style>
+
+    <style name="AppCompatTextView_MyStyle_1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/home_fragment_copyright_of_the_day</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/light_gray</item>
+    </style>
+
+
+
+
     <!-- fragment_settings -->
     <style name="Button">
         <item name="android:backgroundTint">@color/light_red</item>
@@ -10,13 +56,5 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    <!-- fragment_pod -->
-    <style name="TextViewUnderImage">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:background">@color/light_gray</item>
-        <item name="android:gravity">center</item>
-    </style>
+
 </resources>
