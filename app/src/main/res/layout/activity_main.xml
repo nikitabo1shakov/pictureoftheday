@@ -18,6 +18,7 @@
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:backgroundTint="@color/light_gray_2"
         app:itemHorizontalTranslationEnabled="true"
         app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
