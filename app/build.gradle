@@ -3,7 +3,19 @@ plugins {
     id 'kotlin-android'
 }
 
+def signingkeyProperties = new Properties()
+def signingkeyPropertiesFile = rootProject.file("mysigningkey.properties")
+signingkeyProperties.load(new FileInputStream(signingkeyPropertiesFile))
+
 android {
+    signingConfigs {
+        my_key {
+            storeFile file(signingkeyProperties['storeFile'])
+            storePassword signingkeyProperties['storePassword']
+            keyAlias signingkeyProperties['keyAlias']
+            keyPassword signingkeyProperties['keyPassword']
+        }
+    }
     compileSdk 30
 
     defaultConfig {
@@ -14,13 +26,27 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.my_key
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.my_key
         }
+        debug {
+            signingConfig signingConfigs.my_key
+        }
+    }
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("nasaapikey.properties").newDataInputStream())
+        def nasaApiKey = properties.getProperty("NASA_API_KEY", "")
+        it.buildConfigField "String", "NASA_API_KEY", nasaApiKey
+    }
+    buildFeatures {
+        viewBinding true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -33,13 +59,25 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    // UI
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+    // Kotlin
+    implementation 'androidx.core:core-ktx:1.6.0'
+    // AppCompat
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    // Lifecycle and ViewModel
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-    testImplementation 'junit:junit:4.+'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    // Coil
+    implementation 'io.coil-kt:coil:0.11.0'
+    // Test
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
