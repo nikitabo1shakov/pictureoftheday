@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- fragment_settings -->
+    <style name="Button">
+        <item name="android:backgroundTint">@color/light_red</item>
+        <item name="android:layout_marginStart">50sp</item>
+        <item name="android:layout_marginEnd">50sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!-- fragment_pod -->
+    <style name="TextViewUnderImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/light_gray</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>

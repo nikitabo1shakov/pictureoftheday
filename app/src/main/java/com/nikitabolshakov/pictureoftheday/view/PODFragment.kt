@@ -17,6 +17,8 @@ import com.nikitabolshakov.pictureoftheday.databinding.FragmentPodBinding
 import com.nikitabolshakov.pictureoftheday.model.utils.hide
 import com.nikitabolshakov.pictureoftheday.model.utils.show
 import com.nikitabolshakov.pictureoftheday.model.utils.toast
+import com.nikitabolshakov.pictureoftheday.view.api.ApiActivity
+import com.nikitabolshakov.pictureoftheday.view.api.ApiBottomActivity
 import com.nikitabolshakov.pictureoftheday.viewmodel.PODState
 import com.nikitabolshakov.pictureoftheday.viewmodel.PODViewModel
 
@@ -102,8 +104,15 @@ class PODFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_favourite -> toast("Favourite")
-            R.id.app_bar_settings ->
+            R.id.app_bar_favourite -> activity?.let {
+                startActivity(
+                    Intent(
+                        it,
+                        ApiBottomActivity::class.java
+                    )
+                )
+            }
+            R.id.app_bar_chips ->
                 activity
                     ?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.container, ChipsFragment.newInstance())
@@ -113,6 +122,15 @@ class PODFragment : Fragment() {
                 activity?.let {
                     BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
                 }
+            }
+            R.id.app_bar_settings ->
+                activity
+                    ?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.container, SettingsFragment.newInstance())
+                    ?.addToBackStack(null)
+                    ?.commit()
+            R.id.app_bar_api -> activity?.let {
+                startActivity(Intent(it, ApiActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)

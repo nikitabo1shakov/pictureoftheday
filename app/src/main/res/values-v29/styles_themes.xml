@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">?themeColorPrimary</item>
+        <item name="colorPrimaryVariant">?themeColorPrimaryVariant</item>
+        <item name="textColorPrimary">@color/black</item>
+        <item name="textColorSecondary">@color/color_gray</item>
+        <item name="textColorConnected">@color/light_gray</item>
+        <item name="textColorDisConnected">@color/light_gray</item>
+        <item name="android:forceDarkAllowed">true</item>
+    </style>
+</resources>
