@@ -18,6 +18,8 @@ import com.nikitabolshakov.pictureoftheday.viewmodel.apod.APODViewModel
 
 class HomeFragment : Fragment() {
 
+    private var showHomeFragment = false
+
     private val viewModel: APODViewModel by lazy {
         ViewModelProvider(this).get(APODViewModel::class.java)
     }
@@ -39,11 +41,22 @@ class HomeFragment : Fragment() {
         val observer = Observer<APODState> { renderData(it) }
         viewModel.getData().observe(viewLifecycleOwner, observer)
 
-        binding.textInputLayout.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data =
-                    Uri.parse("https://en.wikipedia.org/wiki/${binding.textInputEditText.text.toString()}")
-            })
+        with(binding) {
+            magicButton.setOnClickListener {
+                if (showHomeFragment) {
+                    homeFragmentGroup.show()
+                } else {
+                    homeFragmentGroup.hide()
+                }
+                showHomeFragment = !showHomeFragment
+            }
+
+            textInputLayout.setEndIconOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW).apply {
+                    data =
+                        Uri.parse("https://en.wikipedia.org/wiki/${binding.textInputEditText.text.toString()}")
+                })
+            }
         }
     }
 
