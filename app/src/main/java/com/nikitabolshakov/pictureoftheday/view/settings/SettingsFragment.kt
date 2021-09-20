@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.FragmentSettingsBinding
-import com.nikitabolshakov.pictureoftheday.model.utils.toast
+import com.nikitabolshakov.pictureoftheday.model.utils.hide
+import com.nikitabolshakov.pictureoftheday.model.utils.show
 
 class SettingsFragment : Fragment() {
+
+    var showThemes = false
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
@@ -25,20 +28,27 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.settingsThemePink.setOnClickListener {
-            requireActivity().setTheme(R.style.MyAppTheme_PinkTheme)
-            requireActivity().recreate()
-        }
-        binding.settingsThemeYellow.setOnClickListener {
-            requireActivity().setTheme(R.style.MyAppTheme_YellowTheme)
-            requireActivity().recreate()
-        }
-        binding.settingsThemeGreen.setOnClickListener {
-            requireActivity().setTheme(R.style.MyAppTheme_GreenTheme)
-            requireActivity().recreate()
-        }
-        binding.settingsMagicButton.setOnClickListener {
-            toast("This Is Magic Button")
+        with(binding) {
+            settingsThemePink.setOnClickListener {
+                requireActivity().setTheme(R.style.MyAppTheme_PinkTheme)
+                requireActivity().recreate()
+            }
+            settingsThemeYellow.setOnClickListener {
+                requireActivity().setTheme(R.style.MyAppTheme_YellowTheme)
+                requireActivity().recreate()
+            }
+            settingsThemeGreen.setOnClickListener {
+                requireActivity().setTheme(R.style.MyAppTheme_GreenTheme)
+                requireActivity().recreate()
+            }
+            settingsMagicButton.setOnClickListener {
+                if (showThemes) {
+                    themesGroup.show()
+                } else {
+                    themesGroup.hide()
+                }
+                showThemes = !showThemes
+            }
         }
     }
 

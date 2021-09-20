@@ -26,7 +26,7 @@
     </style>
     <!-- MaterialCardView -->
     <style name="MaterialCardView_MyStyle_1">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">25dp</item>
     </style>
