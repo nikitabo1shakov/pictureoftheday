@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.ActivityMainBinding
 import com.nikitabolshakov.pictureoftheday.view.api.viewpager.ViewPagerFragment
+import com.nikitabolshakov.pictureoftheday.view.demo.DemoFragment
 import com.nikitabolshakov.pictureoftheday.view.home.HomeFragment
 import com.nikitabolshakov.pictureoftheday.view.settings.SettingsFragment
 
@@ -34,6 +35,10 @@ class MainActivity : AppCompatActivity() {
                     openViewPagerFragment()
                     true
                 }
+                R.id.bnv_demo -> {
+                    openDemoFragment()
+                    true
+                }
                 R.id.bnv_settings -> {
                     openSettingsFragment()
                     true
@@ -53,6 +58,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.bnv_api -> {
                     openViewPagerFragment()
                 }
+                R.id.bnv_demo -> {
+                    openDemoFragment()
+                }
                 R.id.bnv_settings -> {
                     openSettingsFragment()
                 }
@@ -69,6 +77,12 @@ class MainActivity : AppCompatActivity() {
     private fun openViewPagerFragment() {
         supportFragmentManager.beginTransaction()
             .replace(binding.mainActivityContainer.id, ViewPagerFragment())
+            .commitAllowingStateLoss()
+    }
+
+    private fun openDemoFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(binding.mainActivityContainer.id, DemoFragment())
             .commitAllowingStateLoss()
     }
 
