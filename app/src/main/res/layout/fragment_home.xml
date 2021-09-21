@@ -2,7 +2,8 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -84,7 +85,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.nikitabolshakov.pictureoftheday.model.utils.EquilateralImageView
+            <com.nikitabolshakov.pictureoftheday.utils.EquilateralImageView
                 android:id="@+id/apod_image_view"
                 style="@style/EquilateralImageView_MyStyle_1"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -113,16 +114,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:constraint_referenced_ids="home_fragment" />
-
-            <com.nikitabolshakov.pictureoftheday.model.utils.EquilateralImageView
-                android:id="@+id/apod_image_view_2"
-                style="@style/EquilateralImageView_MyStyle_1"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_no_photo_vector" />
 
         </androidx.constraintlayout.motion.widget.MotionLayout>
     </androidx.core.widget.NestedScrollView>
