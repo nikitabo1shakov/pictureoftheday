@@ -9,6 +9,12 @@ import com.nikitabolshakov.pictureoftheday.presentation.view.settings.SettingsFr
 
 class BNVOpener(private val fragmentManager: FragmentManager) {
 
+    fun openHomeFragmentNow() {
+        fragmentManager.beginTransaction()
+            .replace(R.id.main_activity_container, HomeFragment())
+            .commitNow()
+    }
+
     fun openHomeFragment() {
         fragmentManager.beginTransaction()
             .replace(R.id.main_activity_container, HomeFragment())
