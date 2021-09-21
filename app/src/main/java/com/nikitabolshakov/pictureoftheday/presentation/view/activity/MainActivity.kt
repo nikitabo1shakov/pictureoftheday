@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.ActivityMainBinding
 import com.nikitabolshakov.pictureoftheday.domain.BNVOpener
+import com.nikitabolshakov.pictureoftheday.presentation.view.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
-            bnvOpener.openHomeFragmentNow()
+            supportFragmentManager.beginTransaction()
+                .replace(binding.mainActivityContainer.id, HomeFragment())
+                .commitNow()
         }
 
         binding.bottomNavigationView.setOnNavigationItemSelectedListener { item ->
