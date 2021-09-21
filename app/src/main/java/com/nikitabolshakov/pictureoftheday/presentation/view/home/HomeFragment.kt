@@ -10,11 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import coil.api.load
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.FragmentHomeBinding
+import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.apod.APODState
+import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.apod.APODViewModel
 import com.nikitabolshakov.pictureoftheday.utils.hide
 import com.nikitabolshakov.pictureoftheday.utils.show
 import com.nikitabolshakov.pictureoftheday.utils.toast
-import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.apod.APODState
-import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.apod.APODViewModel
 
 class HomeFragment : Fragment() {
 
