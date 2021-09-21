@@ -114,6 +114,16 @@
                 android:layout_height="wrap_content"
                 app:constraint_referenced_ids="home_fragment" />
 
+            <com.nikitabolshakov.pictureoftheday.model.utils.EquilateralImageView
+                android:id="@+id/apod_image_view_2"
+                style="@style/EquilateralImageView_MyStyle_1"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_no_photo_vector" />
+
         </androidx.constraintlayout.motion.widget.MotionLayout>
     </androidx.core.widget.NestedScrollView>
 

@@ -34,7 +34,7 @@ class DemoFragment : Fragment() {
         swipe.setSwipeDirection(SwipeDismissBehavior.SWIPE_DIRECTION_ANY)
         swipe.listener = object : SwipeDismissBehavior.OnDismissListener {
             override fun onDismiss(view: View?) {
-                toast("<Card View Swiped>")
+                toast("Card View Swiped")
                 binding.cardViewToSwipe.hide()
             }
 
