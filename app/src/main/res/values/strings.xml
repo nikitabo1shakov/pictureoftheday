@@ -20,5 +20,5 @@
     <string name="chip_apod_image_today">APOD Today</string>
     <string name="chip_apod_image_yesterday">APOD Yesterday</string>
     <string name="chip_apod_image_day_before_yesterday">APOD Day Before Yesterday</string>
-    <string name="chip_hide_show_search_wiki">Search Wiki HIDE/SHOW</string>
+    <string name="chip_hide_show_apod_text">APOD Text HIDE/SHOW</string>
 </resources>

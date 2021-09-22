@@ -7,6 +7,10 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.ChangeBounds
+import androidx.transition.Fade
+import androidx.transition.Slide
+import androidx.transition.TransitionManager
 import coil.api.load
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.FragmentHomeBinding
@@ -19,6 +23,7 @@ import com.nikitabolshakov.pictureoftheday.utils.toast
 class HomeFragment : Fragment() {
 
     private var showHomeFragment = false
+    private var hideShowApodText = true
 
     private val viewModel: APODViewModel by lazy {
         ViewModelProvider(this).get(APODViewModel::class.java)
@@ -58,8 +63,12 @@ class HomeFragment : Fragment() {
                 })
             }
 
-            chipHideShowSearchWiki.setOnClickListener {
-                toast("chipHideShowSearchWiki")
+            chipHideShowApodText.setOnClickListener {
+                val transition = ChangeBounds()
+                transition.duration = 1000
+                TransitionManager.beginDelayedTransition(homeFragment, transition)
+                hideShowApodText = !hideShowApodText
+                apodTextView.visibility = if (hideShowApodText) View.VISIBLE else View.GONE
             }
             chipApodImageToday.setOnClickListener {
                 toast("chipApodImageToday")
