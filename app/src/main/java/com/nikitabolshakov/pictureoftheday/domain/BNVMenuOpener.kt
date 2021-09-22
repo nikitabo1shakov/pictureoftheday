@@ -7,7 +7,7 @@ import com.nikitabolshakov.pictureoftheday.presentation.view.demo.DemoFragment
 import com.nikitabolshakov.pictureoftheday.presentation.view.home.HomeFragment
 import com.nikitabolshakov.pictureoftheday.presentation.view.settings.SettingsFragment
 
-class BNVOpener(private val fragmentManager: FragmentManager) {
+class BNVMenuOpener(private val fragmentManager: FragmentManager) {
 
     fun openHomeFragment() {
         fragmentManager.beginTransaction()

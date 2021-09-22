@@ -4,12 +4,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.ActivityMainBinding
-import com.nikitabolshakov.pictureoftheday.domain.BNVOpener
+import com.nikitabolshakov.pictureoftheday.domain.BNVMenuOpener
 import com.nikitabolshakov.pictureoftheday.presentation.view.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private val bnvOpener: BNVOpener = BNVOpener(supportFragmentManager)
+    private val bnvMenuOpener: BNVMenuOpener = BNVMenuOpener(supportFragmentManager)
 
     private lateinit var binding: ActivityMainBinding
 
@@ -28,23 +28,23 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.bnv_home -> {
-                    bnvOpener.openHomeFragment()
+                    bnvMenuOpener.openHomeFragment()
                     true
                 }
                 R.id.bnv_api -> {
-                    bnvOpener.openViewPagerFragment()
+                    bnvMenuOpener.openViewPagerFragment()
                     true
                 }
                 R.id.bnv_demo -> {
-                    bnvOpener.openDemoFragment()
+                    bnvMenuOpener.openDemoFragment()
                     true
                 }
                 R.id.bnv_settings -> {
-                    bnvOpener.openSettingsFragment()
+                    bnvMenuOpener.openSettingsFragment()
                     true
                 }
                 else -> {
-                    bnvOpener.openHomeFragment()
+                    bnvMenuOpener.openHomeFragment()
                     true
                 }
             }
@@ -53,16 +53,16 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnNavigationItemReselectedListener { item ->
             when (item.itemId) {
                 R.id.bnv_home -> {
-                    bnvOpener.openHomeFragment()
+                    bnvMenuOpener.openHomeFragment()
                 }
                 R.id.bnv_api -> {
-                    bnvOpener.openViewPagerFragment()
+                    bnvMenuOpener.openViewPagerFragment()
                 }
                 R.id.bnv_demo -> {
-                    bnvOpener.openDemoFragment()
+                    bnvMenuOpener.openDemoFragment()
                 }
                 R.id.bnv_settings -> {
-                    bnvOpener.openSettingsFragment()
+                    bnvMenuOpener.openSettingsFragment()
                 }
             }
         }

@@ -5,11 +5,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.ChangeBounds
-import androidx.transition.Fade
-import androidx.transition.Slide
 import androidx.transition.TransitionManager
 import coil.api.load
 import com.nikitabolshakov.pictureoftheday.R
@@ -19,10 +16,11 @@ import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.apod.APODViewM
 import com.nikitabolshakov.pictureoftheday.utils.hide
 import com.nikitabolshakov.pictureoftheday.utils.show
 import com.nikitabolshakov.pictureoftheday.utils.toast
+import java.util.*
 
 class HomeFragment : Fragment() {
 
-    private var showHomeFragment = false
+    private var hideShowHomeFragmentGroup = true
     private var hideShowApodText = true
 
     private val viewModel: APODViewModel by lazy {
@@ -43,17 +41,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val observer = Observer<APODState> { renderData(it) }
-        viewModel.getData().observe(viewLifecycleOwner, observer)
+        viewModel.getDataToday().observe(viewLifecycleOwner) { renderData(it) }
 
         with(binding) {
             magicButton.setOnClickListener {
-                if (showHomeFragment) {
-                    homeFragmentGroup.show()
-                } else {
-                    homeFragmentGroup.hide()
-                }
-                showHomeFragment = !showHomeFragment
+                hideShowHomeFragmentGroup = !hideShowHomeFragmentGroup
+                homeFragmentGroup.visibility =
+                    if (hideShowHomeFragmentGroup) View.VISIBLE else View.GONE
             }
 
             textInputLayout.setEndIconOnClickListener {
@@ -70,14 +64,17 @@ class HomeFragment : Fragment() {
                 hideShowApodText = !hideShowApodText
                 apodTextView.visibility = if (hideShowApodText) View.VISIBLE else View.GONE
             }
+
             chipApodImageToday.setOnClickListener {
-                toast("chipApodImageToday")
+                viewModel.getDataToday().observe(viewLifecycleOwner) { renderData(it) }
             }
+
             chipApodImageYesterday.setOnClickListener {
-                toast("chipApodImageYesterday")
+                viewModel.getDataYesterday().observe(viewLifecycleOwner) { renderData(it) }
             }
+
             chipApodImageDayBeforeYesterday.setOnClickListener {
-                toast("chipApodImageDayBeforeYesterday")
+                viewModel.getDataDayBeforeYesterday().observe(viewLifecycleOwner) { renderData(it) }
             }
         }
     }
@@ -101,6 +98,7 @@ class HomeFragment : Fragment() {
                 }
                 if (copyright.isNullOrEmpty()) {
                     toast("Copyright Link is Empty")
+                    binding.apodTextView.text = getString(R.string.apod_default_copyright)
                 } else {
                     binding.apodTextView.text = copyright
                 }
