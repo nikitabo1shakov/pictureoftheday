@@ -57,6 +57,19 @@ class HomeFragment : Fragment() {
                         Uri.parse("https://en.wikipedia.org/wiki/${binding.textInputEditText.text.toString()}")
                 })
             }
+
+            chipHideShowSearchWiki.setOnClickListener {
+                toast("chipHideShowSearchWiki")
+            }
+            chipApodImageToday.setOnClickListener {
+                toast("chipApodImageToday")
+            }
+            chipApodImageYesterday.setOnClickListener {
+                toast("chipApodImageYesterday")
+            }
+            chipApodImageDayBeforeYesterday.setOnClickListener {
+                toast("chipApodImageDayBeforeYesterday")
+            }
         }
     }
 

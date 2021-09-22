@@ -6,7 +6,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">25dp</item>
-        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:layout_marginTop">0dp</item>
         <item name="android:layout_marginEnd">25dp</item>
         <item name="android:hint">@string/search_wiki</item>
     </style>
