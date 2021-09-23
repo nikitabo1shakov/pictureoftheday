@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.ChangeBounds
 import androidx.transition.ChangeImageTransform
@@ -15,11 +14,11 @@ import androidx.transition.TransitionSet
 import coil.api.load
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.FragmentMarsBinding
+import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.mars.MRFState
+import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.mars.MRFViewModel
 import com.nikitabolshakov.pictureoftheday.utils.hide
 import com.nikitabolshakov.pictureoftheday.utils.show
 import com.nikitabolshakov.pictureoftheday.utils.toast
-import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.mars.MRFState
-import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.mars.MRFViewModel
 
 class MarsFragment : Fragment() {
 
@@ -44,8 +43,7 @@ class MarsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val observer = Observer<MRFState> { renderData(it) }
-        viewModel.getData().observe(viewLifecycleOwner, observer)
+        viewModel.getData().observe(viewLifecycleOwner) { renderData(it) }
 
         with(binding) {
             marsImageView.setOnClickListener {
