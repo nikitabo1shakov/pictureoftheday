@@ -4,10 +4,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.ChangeBounds
+import androidx.transition.ChangeImageTransform
 import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import coil.api.load
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.FragmentHomeBinding
@@ -22,6 +25,7 @@ class HomeFragment : Fragment() {
 
     private var hideShowHomeFragmentGroup = true
     private var hideShowApodText = true
+    private var isExpanded = false
 
     private val viewModel: APODViewModel by lazy {
         ViewModelProvider(this).get(APODViewModel::class.java)
@@ -75,6 +79,22 @@ class HomeFragment : Fragment() {
 
             chipApodImageDayBeforeYesterday.setOnClickListener {
                 viewModel.getDataDayBeforeYesterday().observe(viewLifecycleOwner) { renderData(it) }
+            }
+
+            apodImageView.setOnClickListener {
+                isExpanded = !isExpanded
+                TransitionManager.beginDelayedTransition(
+                    homeFragment, TransitionSet()
+                        .addTransition(ChangeBounds())
+                        .addTransition(ChangeImageTransform())
+                )
+
+                val params: ViewGroup.LayoutParams = apodImageView.layoutParams
+                params.height =
+                    if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT
+                apodImageView.layoutParams = params
+                apodImageView.scaleType =
+                    if (isExpanded) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
             }
         }
     }

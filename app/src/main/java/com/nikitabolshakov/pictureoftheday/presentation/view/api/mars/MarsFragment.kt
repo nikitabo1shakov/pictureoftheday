@@ -4,9 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.ChangeBounds
+import androidx.transition.ChangeImageTransform
+import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import coil.api.load
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.databinding.FragmentMarsBinding
@@ -17,6 +22,8 @@ import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.mars.MRFState
 import com.nikitabolshakov.pictureoftheday.presentation.viewmodel.mars.MRFViewModel
 
 class MarsFragment : Fragment() {
+
+    private var isExpanded = false
 
     private val viewModel: MRFViewModel by lazy {
         ViewModelProvider(this).get(MRFViewModel::class.java)
@@ -39,6 +46,24 @@ class MarsFragment : Fragment() {
 
         val observer = Observer<MRFState> { renderData(it) }
         viewModel.getData().observe(viewLifecycleOwner, observer)
+
+        with(binding) {
+            marsImageView.setOnClickListener {
+                isExpanded = !isExpanded
+                TransitionManager.beginDelayedTransition(
+                    marsFragment, TransitionSet()
+                        .addTransition(ChangeBounds())
+                        .addTransition(ChangeImageTransform())
+                )
+
+                val params: ViewGroup.LayoutParams = marsImageView.layoutParams
+                params.height =
+                    if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.MATCH_PARENT
+                marsImageView.layoutParams = params
+                marsImageView.scaleType =
+                    if (isExpanded) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+            }
+        }
     }
 
     private fun renderData(state: MRFState) {
