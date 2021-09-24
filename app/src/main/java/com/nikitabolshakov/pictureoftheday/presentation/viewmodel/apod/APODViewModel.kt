@@ -20,12 +20,13 @@ class APODViewModel(
     private val apodImpl: APODImpl = APODImpl()
 ) : ViewModel() {
 
+    // @RequiresApi(Build.VERSION_CODES.O)
     fun getDataToday(): LiveData<APODState> {
         val simpleDateFormat = SimpleDateFormat(DATE_FORMAT, Locale.US)
         val calendar = Calendar.getInstance(TimeZone.getTimeZone(NASA_TIME_ZONE))
         calendar.add(Calendar.DAY_OF_YEAR, 0)
         val date: String? = simpleDateFormat.format(calendar.time)
-        sendServerRequest(date)
+        sendServerRequest(date) // LocalDate.now().minusDays(2).toString()
         return liveStateForViewToObserve
     }
 
