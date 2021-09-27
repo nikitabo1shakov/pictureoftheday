@@ -15,4 +15,6 @@
     <string name="bnv_api">API</string>
     <string name="bnv_settings">Settings</string>
     <string name="home_fragment_copyright_of_the_day">Copyright of the Day</string>
+    <string name="swipe_text">Welcome to App. Swipe!</string>
+    <string name="bnv_demo">Demo</string>
 </resources>

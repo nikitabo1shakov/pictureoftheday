@@ -14,7 +14,7 @@
         android:theme="@style/Theme.PictureOfTheDay"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name="com.nikitabolshakov.pictureoftheday.presentation.view.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

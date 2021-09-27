@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
@@ -50,19 +51,20 @@
             android:id="@+id/home_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutDescription="@xml/motion_scene">
+            tools:ignore="MotionLayoutInvalidSceneFileReference">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/wiki_button"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:src="@drawable/ic_wikipedia"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintBottom_toTopOf="@+id/apod_image_view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.922"
+                app:layout_constraintHorizontal_bias="0.924"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.563" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/text_input_layout"
@@ -75,8 +77,7 @@
                 app:endIconMode="custom"
                 app:helperText="@string/wiki_helper_text"
                 app:layout_constraintBottom_toTopOf="@+id/apod_image_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -95,7 +96,7 @@
                 app:srcCompat="@drawable/ic_no_photo_vector" />
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_view_1"
+                android:id="@+id/card_view_2"
                 style="@style/MaterialCardView_MyStyle_1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -108,12 +109,6 @@
                     style="@style/AppCompatTextView_MyStyle_1" />
 
             </com.google.android.material.card.MaterialCardView>
-
-            <androidx.constraintlayout.widget.Group
-                android:id="@+id/home_fragment_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:constraint_referenced_ids="home_fragment" />
 
         </androidx.constraintlayout.motion.widget.MotionLayout>
     </androidx.core.widget.NestedScrollView>

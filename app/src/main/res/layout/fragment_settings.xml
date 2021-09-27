@@ -1,34 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:animateLayoutChanges="true">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/settings_theme_pink"
         style="@style/Button"
-        android:text="@string/settings_theme_pink" />
+        android:text="@string/settings_theme_pink"
+        app:layout_constraintBottom_toTopOf="@+id/settings_theme_yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/settings_theme_yellow"
         style="@style/Button"
-        android:text="@string/settings_theme_yellow" />
+        android:text="@string/settings_theme_yellow"
+        app:layout_constraintBottom_toTopOf="@id/settings_theme_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_theme_pink" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/settings_theme_green"
         style="@style/Button"
-        android:text="@string/settings_theme_green" />
+        android:text="@string/settings_theme_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_theme_yellow" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/settings_magic_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:backgroundTint="@color/red"
         android:contentDescription="@string/something_say"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.703"
         app:srcCompat="@drawable/ic_android"
         app:tint="@color/white" />
 
-</LinearLayout>
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/themes_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="settings_theme_pink, settings_theme_yellow, settings_theme_green" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
