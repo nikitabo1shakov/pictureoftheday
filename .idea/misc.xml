@@ -43,6 +43,7 @@
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.19293478260869565" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.19293478260869565" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/build.xml" value="0.2056159420289855" />
+        <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/chip.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/custom_tab_earth_layout.xml" value="0.4" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/custom_tab_mars_layout.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/custom_tab_weather_layout.xml" value="0.2259963768115942" />
@@ -55,7 +56,7 @@
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_demo.xml" value="0.2056159420289855" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_earht.xml" value="0.19972826086956522" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_earth.xml" value="0.264" />
-        <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_home.xml" value="0.12037037037037036" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_home_end.xml" value="0.2644927536231884" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_home_start.xml" value="0.2" />
         <entry key="..\:/Users/nikit/AndroidStudioProjects/PictureOfTheDay/app/src/main/res/layout/fragment_main.xml" value="0.18795289855072464" />

@@ -83,8 +83,53 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/text_input_edit_text"
                     style="@style/TextInputEditText_MyStyle_1" />
-
             </com.google.android.material.textfield.TextInputLayout>
+
+            <HorizontalScrollView
+                android:id="@+id/horizontal_scroll_view_chips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/apod_image_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_input_layout">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_hide_show_apod_text"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chip_hide_show_apod_text" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_apod_image_today"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chip_apod_image_today" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_apod_image_yesterday"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chip_apod_image_yesterday" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_apod_image_day_before_yesterday"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chip_apod_image_day_before_yesterday" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
 
             <com.nikitabolshakov.pictureoftheday.utils.EquilateralImageView
                 android:id="@+id/apod_image_view"

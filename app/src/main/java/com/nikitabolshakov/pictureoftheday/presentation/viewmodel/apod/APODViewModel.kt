@@ -9,20 +9,47 @@ import com.nikitabolshakov.pictureoftheday.presentation.model.apod.APODServerRes
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
+
+private const val DATE_FORMAT = "yyyy-MM-dd"
+private const val NASA_TIME_ZONE = "America/Los_Angeles"
 
 class APODViewModel(
     private val liveStateForViewToObserve: MutableLiveData<APODState> = MutableLiveData(),
     private val apodImpl: APODImpl = APODImpl()
 ) : ViewModel() {
 
-    fun getData(): LiveData<APODState> {
-        sendServerRequest()
+    // @RequiresApi(Build.VERSION_CODES.O)
+    fun getDataToday(): LiveData<APODState> {
+        val simpleDateFormat = SimpleDateFormat(DATE_FORMAT, Locale.US)
+        val calendar = Calendar.getInstance(TimeZone.getTimeZone(NASA_TIME_ZONE))
+        calendar.add(Calendar.DAY_OF_YEAR, 0)
+        val date: String? = simpleDateFormat.format(calendar.time)
+        sendServerRequest(date) // LocalDate.now().minusDays(2).toString()
         return liveStateForViewToObserve
     }
 
-    private fun sendServerRequest() {
+    fun getDataYesterday(): LiveData<APODState> {
+        val simpleDateFormat = SimpleDateFormat(DATE_FORMAT, Locale.US)
+        val calendar = Calendar.getInstance(TimeZone.getTimeZone(NASA_TIME_ZONE))
+        calendar.add(Calendar.DAY_OF_YEAR, -1)
+        val date: String? = simpleDateFormat.format(calendar.time)
+        sendServerRequest(date)
+        return liveStateForViewToObserve
+    }
+
+    fun getDataDayBeforeYesterday(): LiveData<APODState> {
+        val simpleDateFormat = SimpleDateFormat(DATE_FORMAT, Locale.US)
+        val calendar = Calendar.getInstance(TimeZone.getTimeZone(NASA_TIME_ZONE))
+        calendar.add(Calendar.DAY_OF_YEAR, -2)
+        val date: String? = simpleDateFormat.format(calendar.time)
+        sendServerRequest(date)
+        return liveStateForViewToObserve
+    }
+
+    private fun sendServerRequest(date: String?) {
         liveStateForViewToObserve.value = APODState.Loading(null)
-        val date = null
         val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
             APODState.Error(Throwable("You need API key"))
