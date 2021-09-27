@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nikitabolshakov.pictureoftheday.BuildConfig
-import com.nikitabolshakov.pictureoftheday.data.earth.EarthImpl
+import com.nikitabolshakov.pictureoftheday.data.removed.earth.EarthImpl
 import com.nikitabolshakov.pictureoftheday.presentation.model.earth.EarthServerResponseData
 import retrofit2.Call
 import retrofit2.Callback

@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.data.apod
+package com.nikitabolshakov.pictureoftheday.data.removed.apod
 
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor

@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.data.earth
+package com.nikitabolshakov.pictureoftheday.data.removed.earth
 
 import com.nikitabolshakov.pictureoftheday.presentation.model.earth.EarthServerResponseData
 import retrofit2.Call

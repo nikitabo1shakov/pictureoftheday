@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.data.apod
+package com.nikitabolshakov.pictureoftheday.data.removed.apod
 
 import com.nikitabolshakov.pictureoftheday.presentation.model.apod.APODServerResponseData
 import retrofit2.Call

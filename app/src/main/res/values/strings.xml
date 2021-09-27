@@ -15,11 +15,10 @@
     <string name="bnv_api">API</string>
     <string name="bnv_settings">Settings</string>
     <string name="home_fragment_copyright_of_the_day">Copyright of the Day</string>
-    <string name="swipe_text">Welcome to App. Swipe!</string>
     <string name="chip_apod_image_today">APOD Today</string>
     <string name="chip_apod_image_yesterday">APOD Yesterday</string>
     <string name="chip_apod_image_day_before_yesterday">APOD Day Before Yesterday</string>
     <string name="chip_hide_show_apod_text">APOD Text HIDE/SHOW</string>
     <string name="apod_default_copyright">Copyright Link is Empty</string>
-    <string name="bnv_notes">Notes</string>
+    <string name="bnv_list_of_cases">List of cases</string>
 </resources>

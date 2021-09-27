@@ -7,11 +7,18 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_simple_note"
+        android:id="@+id/heading_complex_case"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/pale_green"
+        android:paddingStart="10dp"
+        android:textSize="50dp"
+        tools:text="Heading" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_complex_case"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:paddingStart="10dp"
         android:textSize="25dp"
-        tools:text="I am simple note" />
+        tools:text="I am complex case" />
 </LinearLayout>

@@ -3,8 +3,8 @@ package com.nikitabolshakov.pictureoftheday.domain
 import androidx.fragment.app.FragmentManager
 import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.presentation.view.api.viewpager.ViewPagerFragment
-import com.nikitabolshakov.pictureoftheday.presentation.view.notes.NotesFragment
 import com.nikitabolshakov.pictureoftheday.presentation.view.home.HomeFragment
+import com.nikitabolshakov.pictureoftheday.presentation.view.cases.ListOfCasesFragment
 import com.nikitabolshakov.pictureoftheday.presentation.view.settings.SettingsFragment
 
 class BNVMenuOpener(private val fragmentManager: FragmentManager) {
@@ -21,9 +21,9 @@ class BNVMenuOpener(private val fragmentManager: FragmentManager) {
             .commitAllowingStateLoss()
     }
 
-    fun openNotesFragment() {
+    fun openListOfCasesFragment() {
         fragmentManager.beginTransaction()
-            .replace(R.id.main_activity_container, NotesFragment())
+            .replace(R.id.main_activity_container, ListOfCasesFragment())
             .commitAllowingStateLoss()
     }
 

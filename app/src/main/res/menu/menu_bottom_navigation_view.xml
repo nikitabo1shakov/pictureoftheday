@@ -9,9 +9,9 @@
         android:icon="@drawable/ic_bnv_api"
         android:title="@string/bnv_api" />
     <item
-        android:id="@+id/bnv_notes"
-        android:icon="@drawable/ic_bnv_notes"
-        android:title="@string/bnv_notes" />
+        android:id="@+id/bnv_list_of_cases"
+        android:icon="@drawable/ic_bnv_cases"
+        android:title="@string/bnv_list_of_cases" />
     <item
         android:id="@+id/bnv_settings"
         android:icon="@drawable/ic_bnv_settings"
