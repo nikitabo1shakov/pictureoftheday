@@ -14,4 +14,34 @@
         android:paddingStart="10dp"
         android:textSize="25dp"
         tools:text="I am simple case" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/move_up_simple_case"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/pale_green"
+            android:src="@drawable/ic_move_up" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/move_down_simple_case"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/pale_green"
+            android:src="@drawable/ic_move_down" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/delete_simple_case"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/pale_green"
+            android:src="@drawable/ic_delete" />
+    </LinearLayout>
 </LinearLayout>

@@ -10,6 +10,7 @@
         android:id="@+id/heading_complex_case"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/yellow"
         android:paddingStart="10dp"
         android:textSize="50dp"
         tools:text="Heading" />
@@ -18,7 +19,38 @@
         android:id="@+id/text_complex_case"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/yellow"
         android:paddingStart="10dp"
         android:textSize="25dp"
         tools:text="I am complex case" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/move_up_complex_case"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/yellow"
+            android:src="@drawable/ic_move_up" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/move_down_complex_case"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/yellow"
+            android:src="@drawable/ic_move_down" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/delete_complex_case"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/yellow"
+            android:src="@drawable/ic_delete" />
+    </LinearLayout>
 </LinearLayout>
