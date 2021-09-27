@@ -10,7 +10,6 @@
     <color name="color_gray">#66000000</color>
     <color name="colorPrimary">#008577</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorAccent40Alfa">#66D81B60</color>
     <color name="loadingBackground">#80FFFFFF</color>
     <color name="green">#008000</color>
     <color name="light_gray">#D3D3D3</color>
@@ -30,4 +29,5 @@
     <color name="pale_green">#98FB98</color>
     <color name="light_yellow">#FFEF82</color>
     <color name="light_green">#89FF87</color>
+    <color name="light_gray_2">#F5F5F5</color>
 </resources>
