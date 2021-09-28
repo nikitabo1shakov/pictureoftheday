@@ -1,6 +1,7 @@
 package com.nikitabolshakov.pictureoftheday.presentation.view.cases
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +12,9 @@ import com.nikitabolshakov.pictureoftheday.R
 import com.nikitabolshakov.pictureoftheday.data.local.cases.ComplexCase
 import com.nikitabolshakov.pictureoftheday.data.local.cases.ItemData
 import com.nikitabolshakov.pictureoftheday.data.local.cases.SimpleCase
+import com.nikitabolshakov.pictureoftheday.utils.recyclerview.ItemTouchHelperAdapter
 
-class ListOfCasesAdapter : RecyclerView.Adapter<BaseViewHolder>() {
+class ListOfCasesAdapter : RecyclerView.Adapter<BaseViewHolder>(), ItemTouchHelperAdapter {
 
     inner class SimpleCaseViewHolder(view: View) : BaseViewHolder(view) {
 
@@ -49,6 +51,14 @@ class ListOfCasesAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         private fun removeCase() {
             cases.removeAt(layoutPosition)
             notifyItemRemoved(layoutPosition)
+        }
+
+        override fun onItemSelected() {
+            itemView.setBackgroundColor(Color.LTGRAY)
+        }
+
+        override fun onItemClear() {
+            itemView.setBackgroundColor(0)
         }
     }
 
@@ -89,6 +99,14 @@ class ListOfCasesAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         private fun removeCase() {
             cases.removeAt(layoutPosition)
             notifyItemRemoved(layoutPosition)
+        }
+
+        override fun onItemSelected() {
+            itemView.setBackgroundColor(Color.LTGRAY)
+        }
+
+        override fun onItemClear() {
+            itemView.setBackgroundColor(0)
         }
     }
 
@@ -146,5 +164,17 @@ class ListOfCasesAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     fun addCase(case: ItemData) {
         cases.add(case)
         notifyItemInserted(cases.size - 1)
+    }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        cases.removeAt(fromPosition).apply {
+            cases.add(if (toPosition > fromPosition) toPosition - 1 else toPosition, this)
+        }
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onItemDismiss(position: Int) {
+        cases.removeAt(position)
+        notifyItemRemoved(position)
     }
 }

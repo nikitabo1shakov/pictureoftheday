@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.nikitabolshakov.pictureoftheday.data.local.cases.SimpleCase
 import com.nikitabolshakov.pictureoftheday.data.local.repository.CasesRepository
 import com.nikitabolshakov.pictureoftheday.data.local.repository.CasesRepositoryImpl
 import com.nikitabolshakov.pictureoftheday.databinding.FragmentListOfCasesBinding
+import com.nikitabolshakov.pictureoftheday.utils.recyclerview.ItemTouchHelperCallback
 
 class ListOfCasesFragment(
     private val casesRepository: CasesRepository = CasesRepositoryImpl()
@@ -43,9 +45,12 @@ class ListOfCasesFragment(
                     LinearLayout.VERTICAL
                 )
             )
+
             addCase.setOnClickListener {
                 adapter.addCase(SimpleCase("новое дело"))
             }
+
+            ItemTouchHelper(ItemTouchHelperCallback(adapter)).attachToRecyclerView(listOfCasesRv)
         }
     }
 
