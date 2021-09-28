@@ -1,6 +1,7 @@
 package com.nikitabolshakov.pictureoftheday.data.removed.apod
 
 import com.nikitabolshakov.pictureoftheday.presentation.model.apod.APODServerResponseData
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -10,5 +11,5 @@ interface APOD {
     suspend fun getAPOD(
         @Query("date") date: String?,
         @Query("api_key") apiKey: String
-    ): APODServerResponseData
+    ): Response<APODServerResponseData>
 }

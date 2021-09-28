@@ -46,7 +46,15 @@ class APODViewModel(
             try {
                 val response =
                     apodImpl.getAPODImpl().getAPOD(getDate(day), BuildConfig.NASA_API_KEY)
-                liveStateForViewToObserve.postValue(APODState.Success(response))
+                if (response.isSuccessful && response.body() != null) {
+                    liveStateForViewToObserve.postValue(APODState.Success(response.body()!!))
+                } else {
+                    if (response.message().isNullOrEmpty()) {
+                        liveStateForViewToObserve.postValue(APODState.Error(Throwable("Unidentified error")))
+                    } else {
+                        liveStateForViewToObserve.postValue(APODState.Error(Throwable(response.message())))
+                    }
+                }
             } catch (e: Exception) {
                 liveStateForViewToObserve.postValue(APODState.Error(e))
             }
