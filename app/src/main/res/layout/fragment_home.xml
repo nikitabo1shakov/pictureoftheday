@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
@@ -149,10 +150,20 @@
                 app:layout_constraintWidth_percent="0.7">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/apod_text_view"
-                    style="@style/AppCompatTextView_MyStyle_1" />
+                    android:id="@+id/apod_title_text_view"
+                    style="@style/AppCompatTextView_MyStyle_1"
+                    android:fontFamily="@font/acme" />
 
             </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/apod_copyright_text_view"
+                style="@style/AppCompatTextView_MyStyle_1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_view_1"
+                tools:text="dddddddddddddddddddddddddddddddddd" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/home_fragment_group"

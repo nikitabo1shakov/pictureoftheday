@@ -1,6 +1,7 @@
 package com.nikitabolshakov.pictureoftheday.presentation.view.home
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -69,7 +70,7 @@ class HomeFragment : Fragment() {
                 transition.duration = 1000
                 TransitionManager.beginDelayedTransition(homeFragment, transition)
                 hideShowApodText = !hideShowApodText
-                apodTextView.visibility = if (hideShowApodText) View.VISIBLE else View.GONE
+                apodTitleTextView.visibility = if (hideShowApodText) View.VISIBLE else View.GONE
             }
 
             chipApodImageToday.setOnClickListener {
@@ -100,6 +101,11 @@ class HomeFragment : Fragment() {
                     if (isExpanded) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
             }
         }
+
+        activity?.let {
+            binding.apodCopyrightTextView.typeface =
+                Typeface.createFromAsset(it.assets, "SpaceQuest-Xj4o.ttf")
+        }
     }
 
     private fun renderData(state: APODState) {
@@ -109,6 +115,7 @@ class HomeFragment : Fragment() {
                 binding.includedLoadingLayout.loadingLayout.hide()
                 val serverResponseData = state.serverResponseData
                 val url = serverResponseData.url
+                val title = serverResponseData.title
                 val copyright = serverResponseData.copyright
                 if (url.isNullOrEmpty()) {
                     toast("Image Link is Empty")
@@ -119,11 +126,17 @@ class HomeFragment : Fragment() {
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
                 }
+                if (title.isNullOrEmpty()) {
+                    toast("Title Link is Empty")
+                    binding.apodTitleTextView.text = getString(R.string.apod_default_title)
+                } else {
+                    binding.apodTitleTextView.text = title
+                }
                 if (copyright.isNullOrEmpty()) {
                     toast("Copyright Link is Empty")
-                    binding.apodTextView.text = getString(R.string.apod_default_copyright)
+                    binding.apodCopyrightTextView.text = getString(R.string.apod_default_copyright)
                 } else {
-                    binding.apodTextView.text = copyright
+                    binding.apodCopyrightTextView.text = title
                 }
             }
             is APODState.Loading -> {
