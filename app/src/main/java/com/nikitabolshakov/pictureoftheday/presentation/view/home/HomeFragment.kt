@@ -1,10 +1,15 @@
 package com.nikitabolshakov.pictureoftheday.presentation.view.home
 
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Typeface
+import android.graphics.Typeface.BOLD
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.*
 import android.view.*
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
@@ -134,9 +139,27 @@ class HomeFragment : Fragment() {
                 }
                 if (copyright.isNullOrEmpty()) {
                     toast("Copyright Link is Empty")
-                    binding.apodCopyrightTextView.text = getString(R.string.apod_default_copyright)
+                    val spannable =
+                        SpannableStringBuilder(getString(R.string.apod_default_copyright))
+                    spannable.setSpan(
+                        ForegroundColorSpan(Color.GREEN),
+                        0, 7,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                    binding.apodCopyrightTextView.text = spannable
                 } else {
-                    binding.apodCopyrightTextView.text = title
+                    val spannable = SpannableStringBuilder(copyright)
+                    spannable.setSpan(
+                        ForegroundColorSpan(Color.RED),
+                        2, 7,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                    spannable.setSpan(
+                        StyleSpan(BOLD),
+                        8, spannable.length,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                    binding.apodCopyrightTextView.text = spannable
                 }
             }
             is APODState.Loading -> {
