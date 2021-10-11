@@ -1,13 +1,13 @@
-package com.nikitabolshakov.pictureoftheday.data.earth
+package com.nikitabolshakov.pictureoftheday.data.removed.marsroverphotos
 
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class EarthImpl {
+class MRFImpl {
 
-    fun getEarthImpl(): Earth {
-        val earthRetrofit = Retrofit.Builder()
+    fun getMRFImpl(): MRF {
+        val mrfRetrofit = Retrofit.Builder()
             .baseUrl("https://api.nasa.gov/")
             .addConverterFactory(
                 GsonConverterFactory.create(
@@ -15,6 +15,6 @@ class EarthImpl {
                 )
             )
             .build()
-        return earthRetrofit.create(Earth::class.java)
+        return mrfRetrofit.create(MRF::class.java)
     }
 }

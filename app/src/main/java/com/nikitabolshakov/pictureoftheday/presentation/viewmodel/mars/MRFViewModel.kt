@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nikitabolshakov.pictureoftheday.BuildConfig
-import com.nikitabolshakov.pictureoftheday.data.marsroverphotos.MRFImpl
+import com.nikitabolshakov.pictureoftheday.data.removed.marsroverphotos.MRFImpl
 import com.nikitabolshakov.pictureoftheday.presentation.model.mars.MRFServerResponseData
 import retrofit2.Call
 import retrofit2.Callback

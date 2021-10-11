@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
                     bnvMenuOpener.openViewPagerFragment()
                     true
                 }
-                R.id.bnv_demo -> {
-                    bnvMenuOpener.openDemoFragment()
+                R.id.bnv_list_of_cases -> {
+                    bnvMenuOpener.openListOfCasesFragment()
                     true
                 }
                 R.id.bnv_settings -> {
@@ -58,8 +58,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.bnv_api -> {
                     bnvMenuOpener.openViewPagerFragment()
                 }
-                R.id.bnv_demo -> {
-                    bnvMenuOpener.openDemoFragment()
+                R.id.bnv_list_of_cases -> {
+                    bnvMenuOpener.openListOfCasesFragment()
                 }
                 R.id.bnv_settings -> {
                     bnvMenuOpener.openSettingsFragment()

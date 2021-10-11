@@ -1,4 +1,4 @@
-package com.nikitabolshakov.pictureoftheday.data.marsroverphotos
+package com.nikitabolshakov.pictureoftheday.data.removed.marsroverphotos
 
 import com.nikitabolshakov.pictureoftheday.presentation.model.mars.MRFServerResponseData
 import retrofit2.Call
