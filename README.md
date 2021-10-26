@@ -1,2 +1,2 @@
 # pictureoftheday
-(/relative/res/drawable/kosmonavt.jpg?raw=true "Optional Title")
+(https://raw.github.com/nikitabo1shakov/pictureoftheday/master/drawable/kosmonavt.jpg)
