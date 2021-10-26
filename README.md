@@ -1,2 +1,1 @@
-# pictureoftheday
-![Screenshot](kosmonavt.png)
+
