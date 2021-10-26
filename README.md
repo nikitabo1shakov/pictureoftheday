@@ -1,2 +1,2 @@
 # pictureoftheday
-https://github.com/nikitabo1shakov/pictureoftheday/blob/master/app/src/main/res/drawable/kosmonavt.jpg
+![Alt text](/relative/res/drawable/kosmonavt.jpg?raw=true "Optional Title")
