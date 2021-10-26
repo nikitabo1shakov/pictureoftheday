@@ -1,2 +1,4 @@
 # pictureoftheday
-(https://raw.github.com/nikitabo1shakov/pictureoftheday/master/drawable/kosmonavt.jpg)
+<div align="center">
+    <img src="/drawable/kosmonavt.jpg" width="400px"</img> 
+</div>
